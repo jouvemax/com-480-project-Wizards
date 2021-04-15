@@ -24,3 +24,25 @@ Add link to raw data.
 The goal of our project is to offer a better understanding of Co2 emissions. Indeed, tackling the climate change problem has become a priority, and the young 
 generation is taking actions through activism, entrepreneurship or in politics. 
 However, it is still important to educate people about emissions. We need to understand where there are coming from, and what can we do to reduce them.
+
+
+Talk about Bill Gates new book and link.
+
+## Exploratory Data Analysis
+
+You can see our preprocessing and a first analysis of the data in the following notebook.
+
+Add link
+
+## Related work
+
+• What others have already done with the data?
+There are various websites that offer visualization of data related to Co2 emissions. However, usually they do not provide context about emissions, their analysis is either only global (countries and sector) or only focus on one sector. 
+
+• Why is your approach original?
+We would like to give a top down approach of Co2 emissions. The user will first see how he compare with people living in other countries in term of emissions. He will then have an overview of emissions, by looking at countries on a map and sectors. Finally we would like to give him insights of each sector taken independently. Where are the agriculture emissions from? Why does the industry is such a big polluter etc... What kind of solutions already exist for each sectors, and what are the ones that still need to be developped.
+
+We hope that by the end of our visualization, the user will have a better understanding of Co2 emissions and, thus, can have a better impact.
+
+• What source of inspiration do you take? Visualizations that you found on other
+add some website. breakthrough enery...
