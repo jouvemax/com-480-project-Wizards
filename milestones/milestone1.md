@@ -20,17 +20,29 @@ For the preprocessing, we have decided to gather some sectors together to keep t
 
 - The next part will be about the agriculture sector. For this part, we have decided to show the kg of Co2 emissions per kg of food. Thus, we would like to compare various kind of food and their relative emissions. The data is from [OurWorldInData](https://ourworldindata.org/food-choice-vs-eating-local). It is already clean, and we just preprocessed it to be easy to use. The raw data can be seen [here](https://github.com/jouvemax/com-480-project-Wizards/blob/main/milestones/datasets/food_emissions.csv).
 
-- Finally, we will have a look at the transportation sector. We found the data on the International Energy Agency [website](https://www.iea.org/data-and-statistics/charts/transport-sector-co2-emissions-by-mode-in-the-sustainable-development-scenario-2000-2030). We preprocessed it to only keep the most recent data (2020). The raw file can be seen [here](https://github.com/jouvemax/com-480-project-Wizards/blob/main/milestones/datasets/transport_emissions.csv).
+- Finally, we will have a look at the transportation sector. We found the data on the International Energy Agency [website](https://www.iea.org/data-and-statistics/charts/transport-sector-co2-emissions-by-mode-in-the-sustainable-development-scenario-2000-2030). We preprocessed it to only keep the most recent data (2020). The raw file can be seen [here](https://github.com/jouvemax/com-480-project-Wizards/blob/main/milestones/datasets/transport_emissions.csv). We converted the metrics to have, for each kind of transportation its Million tons of Co2 equivalent for each year.
 
 
 ## Problematic
 
-The goal of our project is to offer a better understanding of Co2 emissions. Indeed, tackling the climate change problem has become a priority, and the young 
-generation is taking actions through activism, entrepreneurship or in politics. 
-However, it is still important to educate people about emissions. We need to understand where there are coming from, and what can we do to reduce them.
+What am I trying to show with my visualization?
+• Think of an overview for the project, your motivation, and the target audience.
 
+The goal of our project is to give a better understanding of Co2 emissions and how it impacts the climate change. Indeed, tackling this problem has become a priority, and the young generation is taking actions through activism, entrepreneurship or in politics. 
+However, some facts about global Co2 emissions are still not known, and might sometimes be unclear. Indeed, experts are using different metrics, and it might be hard to follow.
 
-Talk about Bill Gates new book and link.
+As as result, we would like to give an overview of the various emissions, and hope to educate the users of our website with different interactions.
+
+We will follow a top-down approach:
+
+First, we will show the global situations of Co2 emissions. The goal, will be to understand the contribution of each sector (Energy and Heat, Industry, Agriculture and deforestation, and finally Transportation). Moreover, we would like to show the contribution of each country.
+
+Then, we will dive deeper into each sector and provide an interactive experience for the users.
+For each sector, the user will learn about uncommon facts. For example, regarding the agriculture section, we want the user to realize what are the footprint of the food he/her consummes. Also, if we look at the transportation sector, it is not known that aviation represents less than 10% of the total sector emissions, and road transportation is responsible for more than 75% of it.
+
+Finally, we would like to have an interaction with the user so that he can learn more about its own lifestyle footprint.
+
+Our motivation is to educate people about the climate change topic, and especially about Co2 emissions. We target all people that would like to know more about this topic and especially the ones that struggle to make sense of all the available ressources.
 
 ## Exploratory Data Analysis
 
