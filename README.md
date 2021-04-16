@@ -8,4 +8,4 @@
 
 ## Milestones
 
-Milestone 1
+[Milestone 1](https://github.com/jouvemax/com-480-project-Wizards/blob/main/milestones/milestone1.md) | Milestone 2 | Milestone 3
