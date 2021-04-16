@@ -35,12 +35,12 @@ As as result, we would like to give an overview of the various emissions, and ho
 
 We will follow a top-down approach:
 
-First, we will show the global situations of Co2 emissions. The goal, will be to understand the contribution of each sector (Energy and Heat, Industry, Agriculture and deforestation, and finally Transportation). Moreover, we would like to show the contribution of each country.
+- First, we will show the global situations of Co2 emissions. The goal, will be to understand the contribution of each sector (Energy and Heat, Industry, Agriculture and deforestation, and finally Transportation). Moreover, we would like to show the contribution of each country.
 
-Then, we will dive deeper into each sector and provide an interactive experience for the users.
+- Then, we will dive deeper into each sector and provide an interactive experience for the users.
 For each sector, the user will learn about uncommon facts. For example, regarding the agriculture section, we want the user to realize what are the footprint of the food he/her consummes. Also, if we look at the transportation sector, it is not known that aviation represents less than 10% of the total sector emissions, and road transportation is responsible for more than 75% of it.
 
-Finally, we would like to have an interaction with the user so that he can learn more about its own lifestyle footprint.
+- Finally, we would like to have an interaction with the user so that he can learn more about its own lifestyle footprint.
 
 Our motivation is to educate people about the climate change topic, and especially about Co2 emissions. We target all people that would like to know more about this topic and especially the ones that struggle to make sense of all the available ressources.
 
