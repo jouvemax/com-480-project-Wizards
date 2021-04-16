@@ -51,12 +51,22 @@ You can see all our preprocessing and a first analysis of the data in the follow
 ## Related work
 
 • What others have already done with the data?
-There are various websites that offer visualization of data related to Co2 emissions. However, usually they do not provide context about emissions, their analysis is either only global (countries and sector) or only focus on one sector. 
+
+There are various websites that offer visualization of data related to Co2 emissions. However, usually they do not provide context about emissions and metrics they use, their analysis is either only global (countries and sector) or only focus on one sector. When searching for data, we also found various visualizations (see sources from the Dataset section).
+Bill Gates and its foundation for climate change, have already tried to make the topic of Co2 emissions simple.
 
 • Why is your approach original?
-We would like to give a top down approach of Co2 emissions. The user will first see how he compare with people living in other countries in term of emissions. He will then have an overview of emissions, by looking at countries on a map and sectors. Finally we would like to give him insights of each sector taken independently. Where are the agriculture emissions from? Why does the industry is such a big polluter etc... What kind of solutions already exist for each sectors, and what are the ones that still need to be developped.
 
-We hope that by the end of our visualization, the user will have a better understanding of Co2 emissions and, thus, can have a better impact.
+First of all, we are combining multiple sources that haven't been gathered before. As a result, we would like to give a complete overview of Co2 emissions, starting from global data, and then exploring each sector in more details.
 
-• What source of inspiration do you take? Visualizations that you found on other
-add some website. breakthrough enery...
+Then, we would like to link both visualizations and simple explanations so that a large audience can understand.
+
+Finally, we would like to make the experience interactive to engage the user and show him/her how his/her lifestyle affects the climate.
+
+• What source of inspiration do you take? Visualizations that you found on other websites or magazines (might be unrelated to your data).
+
+We took inspiration from the work of Bill Gates, with his new book about climate change. We wanted to make a more visual and interactive experience. His foundation for the climate, [Breakthrough Energy](https://www.breakthroughenergy.org/), has already done various visualizations about emissions that are inspiring.
+
+Regarding the lifestyle footprint, we took inspiration from the [footprint calculator](https://www.footprintcalculator.org/food1) website.
+
+We would like to build a map of the world, and took inspirations from various choropleth maps, like this [one](http://bl.ocks.org/micahstubbs/8e15870eb432a21f0bc4d3d527b2d14f) done in D3.js.
