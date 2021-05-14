@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Data Visualization</title>
+
+    <link rel="stylesheet" href="lib/fullpage.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="fullpage">
+    	<section id="intro" class="section">
+    		<h1>Introduction</h1>
+    	</section>
+    	<section id="overview" class="section">
+    		<h1>Global Overview</h1>
+    	</section>
+
+    </div>
+  </body>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="lib/fullpage.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $("#fullpage").fullpage({
+      navigation: true,
+      navigationTooltips: [
+        "Introduction",
+        "Overview",
+      ],
+      anchors: ["Introduction", "Global-Overview"],
+      slidesNavigation: true,
+      controlArrows: true,
+    });
+  });
+</script>
+</html>
