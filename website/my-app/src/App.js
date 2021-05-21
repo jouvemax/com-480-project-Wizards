@@ -13,6 +13,7 @@ import {
   Heading,
 } from '@chakra-ui/react';
 import BarChart from "./BarChart";
+import StackedBarChart from "./StackedBarChart";
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
             </Center>
             <Center h="200vh" w="100vw" bg="orange.400">
               <Heading>Energy </Heading>
+              <StackedBarChart />
             </Center>
             <Center h="100vh" w="100vw" bg="red.400">
               <Heading>Industry</Heading>
