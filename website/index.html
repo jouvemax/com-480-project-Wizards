@@ -5,6 +5,9 @@
 
     <link rel="stylesheet" href="lib/fullpage.min.css" />
     <link rel="stylesheet" href="style.css" />
+      <script src="https://d3js.org/d3.v4.min.js"></script>
+      <script src="sections/energy/barChart.js"></script>
+
   </head>
   <body>
     <div id="fullpage">
@@ -14,6 +17,21 @@
     	<section id="overview" class="section">
     		<h1>Global Overview</h1>
     	</section>
+        <section id="energy" class="section">
+            <h1>Electricity sources</h1>
+            <div id='stackedBarChart' style="height: 400px; overflow-y: scroll;">
+                <script>
+                    emissionChart();
+                </script>
+            </div>
+            <div class="slide">
+                <div class="container">
+                    <div class="columns is-vcentered">
+                        <h1>Testing</h1>
+                    </div >
+                </div>
+            </div>
+        </section>
 
     </div>
   </body>
@@ -29,7 +47,7 @@
         "Introduction",
         "Overview",
       ],
-      anchors: ["Introduction", "Global-Overview"],
+      anchors: ["Introduction", "Global-Overview", "Energy"],
       slidesNavigation: true,
       controlArrows: true,
     });
