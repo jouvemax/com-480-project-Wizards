@@ -32,7 +32,6 @@
 
 .items {
     flex: 50%;
-    background-color: cornflowerblue;
     overflow-x: auto;
     overflow-y: auto;
 }
