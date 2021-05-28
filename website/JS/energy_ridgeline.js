@@ -11,7 +11,7 @@ function energy_ridgeline(country) {
 
     d3.select("#energyRidgeline").html('');
     // append the svg object to the body of the page
-    var svg = d3.select("#ridgelineChart")
+    var svg = d3.select("#energyRidgeline")
         .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
@@ -28,7 +28,7 @@ function energy_ridgeline(country) {
         .text(country);
 
     //read data
-    d3.csv("electricity_emissions.csv", function (data) {
+    d3.csv("JS/electricity_emissions.csv", function (data) {
         data = data.filter(function (object) {
             return object.Entity == country;
         });

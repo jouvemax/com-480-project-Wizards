@@ -29,7 +29,7 @@ function energy() {
     color.domain(["coal", "oil", "gas", "nuclear", "solar", "hydro", "wind", "other renewables"]);
     let sources = ["coal", "oil", "gas", "nuclear", "solar", "hydro", "wind", "other renewables"]
 
-    d3.csv("electricity_emissions.csv", function (error, data) {
+    d3.csv("JS/electricity_emissions.csv", function (error, data) {
         const current_year = "2019";
         let current_data = [];
 
