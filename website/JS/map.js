@@ -1,6 +1,6 @@
 function displayMap() {
-  d3.json("http://127.0.0.1:8887/data/world_countries.json", function(error1, map_data) {
-    d3.json("http://127.0.0.1:8887/data/emissions_full_dataset.json", function(error2, emissions_data) {
+  d3.json("JS/world_countries.json", function(error1, map_data) {
+    d3.json("JS/emissions_full_dataset.json", function(error2, emissions_data) {
 
       console.log(emissions_data)
       console.log(map_data)
@@ -85,7 +85,7 @@ function displayMap() {
       width_barChart = 200 - margin_barChart.left - margin_barChart.right,
       height_barChart = 500 - margin_barChart.top - margin_barChart.bottom;
 
-      svg_barChart = d3.select('#my_dataviz')
+      svg_barChart = d3.select(".mapLeft").select("#sectorChart")
       .append("svg")
       .attr("width", width_barChart + margin_barChart.left + margin_barChart.right)
       .attr("height", height_barChart + margin_barChart.top + margin_barChart.bottom)
@@ -297,8 +297,8 @@ function displayMap() {
 
     function updateBar(year, countryName, countryData) {
 
-      document.getElementById("countryName").innerHTML = countryName + " - "
-      document.getElementById("countryEmission").innerHTML = countryData.total + " MtCo2e"
+      document.getElementById("countryName").innerHTML = countryName + "  "
+      document.getElementById("countryEmission").innerHTML = countryData.total.toFixed(2) + " MtCo2e"
 
       var margin = {top: 50, right: 50, bottom: 50, left: 50},
       width = 300 - margin.left - margin.right,
@@ -413,7 +413,7 @@ function displayMap() {
         yaxis_barChart.call(d3.axisLeft(y_barChart));
 
         // create a tooltip
-        var Tooltip = d3.select("#my_dataviz")
+        var Tooltip = d3.select(".mapLeft").select("#sectorChart")
         .append("div")
         .style("opacity", 0)
         .attr("class", "tooltip")

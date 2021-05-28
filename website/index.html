@@ -27,18 +27,23 @@
             </div>
         </section>
     	<section id="overview" class="section">
-    		<div>
-                <div id="colorLegend"></div>
-                <div class="col-sm-2"><p id="value-time"></p></div>
-                <div class="col-sm"><div id="slider-time"></div></div>
+            <h1>
+                <span id="countryName"></span>
+                <span id="countryEmission"></span>
+            </h1>
+            <div class="flex-container">
+                <div class="mapLeft">
+                    <div id="sectorLegend"></div>
+                    <div id="sectorChart"></div>
+                </div>
+                <div class="mapRight">
+                    <div id="colorLegend"></div>
+                    <div id="worldmap"></div>
+                    <div class="col-sm-2"><p id="value-time"></p></div>
+                    <div class="col-sm"><div id="slider-time"></div></div>
+                </div>
             </div>
-            <div id="worldmap"></div>
-            <div>
-                <span id="countryName" />
-                <span id="countryEmission" />
-            </div>
-            <div id="my_dataviz"></div>
-            <div id="sectorLegend"></div>
+
     	</section>
         <section id="energy" class="section">
             <h1>Energy</h1>
@@ -68,6 +73,8 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.10.3/babel.min.js'></script>
   <script src="JS/map.js"></script>
   <script src="JS/d3-tip.js"></script>
+  <script src="https://unpkg.com/d3-simple-slider"></script>
+  <script src="https://d3js.org/d3-scale-chromatic.v1.js"></script>
 <script>
   $(document).ready(function () {
     $("#fullpage").fullpage({
