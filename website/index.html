@@ -2,8 +2,8 @@
 <html>
   <head>
     <title>Data Visualization</title>
-
-    <link rel="stylesheet" href="lib/fullpage.min.css" />
+      <link rel="icon" type="image/png" href="imgs/favicon.png"/>
+      <link rel="stylesheet" href="lib/fullpage.min.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -27,7 +27,18 @@
             </div>
         </section>
     	<section id="overview" class="section">
-    		<h1>Global Overview</h1>
+    		<div>
+                <div id="colorLegend"></div>
+                <div class="col-sm-2"><p id="value-time"></p></div>
+                <div class="col-sm"><div id="slider-time"></div></div>
+            </div>
+            <div id="worldmap"></div>
+            <div>
+                <span id="countryName" />
+                <span id="countryEmission" />
+            </div>
+            <div id="my_dataviz"></div>
+            <div id="sectorLegend"></div>
     	</section>
         <section id="energy" class="section">
             <h1>Energy</h1>
@@ -47,7 +58,16 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-<script src="lib/fullpage.min.js"></script>
+  <script src="lib/fullpage.min.js"></script>
+  <script src="lib/d3.min.js"></script>
+  <script src="lib/d3-legend.min.js"></script>
+  <script src="http://d3js.org/d3.v4.min.js"></script>
+  <script src="http://d3js.org/queue.v1.min.js"></script>
+  <script src="http://d3js.org/topojson.v1.min.js"></script>
+  <script src="https://d3js.org/d3-geo-projection.v1.min.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.10.3/babel.min.js'></script>
+  <script src="JS/map.js"></script>
+  <script src="JS/d3-tip.js"></script>
 <script>
   $(document).ready(function () {
     $("#fullpage").fullpage({
@@ -61,5 +81,8 @@
       controlArrows: true,
     });
   });
+</script>
+<script type="text/javascript">
+    displayMap();
 </script>
 </html>
