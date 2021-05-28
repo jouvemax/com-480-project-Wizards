@@ -1,0 +1,44 @@
+.container{
+    text-align: center;
+    margin: auto;
+    flex-direction: column;
+}
+
+.scrollable{
+    background-color: dimgray;
+    height: 80vh;
+    width: 80vw;
+    overflow-y: scroll;
+    display: flex;
+    float: left;
+}
+
+.red{
+    background-color: indianred;
+    height: 200vh;
+}
+
+.even{
+    background-color: white;
+}
+
+.uneven{
+    background-color: cornflowerblue;
+}
+
+.row {
+    display: flex;
+}
+
+.items {
+    flex: 50%;
+    background-color: cornflowerblue;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

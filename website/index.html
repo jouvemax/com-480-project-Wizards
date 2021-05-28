@@ -1,56 +1,80 @@
 <!doctype html>
 <html>
-  <head>
+
+<head>
     <title>Data Visualization</title>
 
     <link rel="stylesheet" href="lib/fullpage.min.css" />
     <link rel="stylesheet" href="style.css" />
-      <script src="https://d3js.org/d3.v4.min.js"></script>
-      <script src="sections/energy/barChart.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="sections/energy/barChart.js"></script>
+    <script src="sections/energy/ridgeline.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 
-  </head>
-  <body>
-    <div id="fullpage">
-    	<section id="intro" class="section">
-    		<h1>Introduction</h1>
-    	</section>
-    	<section id="overview" class="section">
-    		<h1>Global Overview</h1>
-    	</section>
-        <section id="energy" class="section">
-            <h1>Electricity sources</h1>
-            <div id='stackedBarChart' style="height: 400px; overflow-y: scroll;">
-                <script>
-                    emissionChart();
-                </script>
-            </div>
-            <div class="slide">
-                <div class="container">
-                    <div class="columns is-vcentered">
-                        <h1>Testing</h1>
-                    </div >
-                </div>
-            </div>
-        </section>
+</head>
 
+<body>
+<div id="fullpage">
+    <section id="intro" class="section">
+        <h1>Introduction</h1>
+    </section>
+    <section id="overview" class="section">
+        <h1>Global Overview</h1>
+    </section>
+    <section id="energy" class="section red">
+        <div class="slide">
+            <h1>One single section</h1>
+        </div>
+        <div class="slide">
+            <h1>And a normal website under it</h1>
+        </div>
+
+        <div class="slide">
+            <h1>A great single slider!</h1>
+        </div>
+    </section>
+
+</div>
+<div>
+    <h1>Electricity sources</h1>
+    <div class="flex-container">
+        <div class="items"> Text 1 </div>
+        <div class="items"> Text 2</div>
     </div>
-  </body>
+    <div class="flex-container">
+        <div id='stackedBarChart' class="items"/>
+        <div id="ridgelineChart" class="items"/>
+    </div>
 
+
+</div>
+</body>
+<script>
+    Ridgeline("World");
+    emissionChart();
+</script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 <script src="lib/fullpage.min.js"></script>
 <script>
-  $(document).ready(function () {
-    $("#fullpage").fullpage({
-      navigation: true,
-      navigationTooltips: [
-        "Introduction",
-        "Overview",
-      ],
-      anchors: ["Introduction", "Global-Overview", "Energy"],
-      slidesNavigation: true,
-      controlArrows: true,
+    $(document).ready(function () {
+        $("#fullpage").fullpage({
+            navigation: true,
+            navigationTooltips: [
+                "Introduction",
+                "Overview",
+            ],
+            anchors: ["Introduction", "Global-Overview", "Energy"],
+            slidesNavigation: true,
+            controlArrows: true,
+            autoScrolling: false,
+            fitToSection:false,
+        });
+        // $("#energy").fullpage({
+        //     fitToSection:false,
+        //     autoScrolling: false,
+        // });
     });
-  });
 </script>
+
 </html>
