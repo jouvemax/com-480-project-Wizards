@@ -2,3 +2,46 @@
     height: 100vh;
     width: 100vw;
 }
+
+.item {
+    flex: 50%;
+    margin-left: 6%;
+    margin-right: 6%;
+}
+
+.right {
+    vertical-align: middle;
+    margin-left: 0;
+    vertical-align: middle;
+    margin-bottom: 10%;
+}
+
+.planetImage {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+p {
+    text-align: justify;
+    display: table-row;
+    text-align-last: justify;
+    font-family: "HelveticaNowText Regular";
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    font-family: "HelveticaNowText Bold";
+}
+
+section {
+    height: 100vw;
+    width: 100vw;
+}
