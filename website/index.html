@@ -25,21 +25,28 @@
             </div>
         </section>
     	<section id="overview" class="section">
-            <h1>
-                <span id="countryName"></span>
-                <span id="countryEmission"></span>
+
+            <h1 id="countryData">
+                <p id="countryName"></p>
+                <p>&nbsp;-&nbsp;</p>
+                <p class="col-sm-2">
+                  <p id="value-time"></p>
+                </p>
+                <p>: &nbsp;</p>
+                <p id="countryEmission"></p>
             </h1>
-            <div class="flex-container">
+              <div id="slider-time"></div>
+            <div class="flex-container" id="mapChart">
                 <div class="mapLeft">
-                    <div id="sectorLegend"></div>
                     <div id="sectorChart"></div>
                 </div>
                 <div class="mapRight">
-                    <div id="colorLegend"></div>
                     <div id="worldmap"></div>
-                    <div class="col-sm-2"><p id="value-time"></p></div>
-                    <div class="col-sm"><div id="slider-time"></div></div>
                 </div>
+            </div>
+            <div class="flex-container" id="legends">
+              <div id="sectorLegend"></div>
+              <div id="colorLegend"></div>
             </div>
 
     	</section>
