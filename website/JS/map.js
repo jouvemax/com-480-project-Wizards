@@ -81,9 +81,9 @@ function displayMap() {
 
       // append the svg object to the body of the page
       // set the dimensions and margins of the graph
-      var margin_barChart = {top: 50, right: 50, bottom: 50, left: 50},
+      var margin_barChart = {top: 20, right: 50, bottom: 20, left: 50},
       width_barChart = 200 - margin_barChart.left - margin_barChart.right,
-      height_barChart = 500 - margin_barChart.top - margin_barChart.bottom;
+      height_barChart = 480 - margin_barChart.top - margin_barChart.bottom;
 
       svg_barChart = d3.select(".mapLeft").select("#sectorChart")
       .append("svg")
@@ -113,12 +113,20 @@ function displayMap() {
 
       // Add one dot in the legend for each name.
       var size = 20
+      const xPos = keys.map(function (d, i) {
+        if (d == "Agriculture") return 50
+        if (d == "Industry") return 120
+        if (d == "Energy") return 190
+        if (d == "Transportation") return 280
+        if (d == "Other") return 360
+        return 50 + i*(size+60)})
+      console.log(xPos)
       legendsBarChart.selectAll("mydots")
       .data(keys)
       .enter()
       .append("rect")
-      .attr("x", 100)
-      .attr("y", function(d,i){ return 100 + i*(size+5)}) // 100 is where the first dot appears. 25 is the distance between dots
+      .attr("x", function(d,i) { return xPos[i]})
+      .attr("y", 10) // 100 is where the first dot appears. 25 is the distance between dots
       .attr("width", size)
       .attr("height", size)
       .style("fill", function(d,i){ return colors[i]})
@@ -128,11 +136,17 @@ function displayMap() {
       .data(keys)
       .enter()
       .append("text")
-      .attr("x", 100 + size*1.2)
-      .attr("y", function(d,i){ return 100 + i*(size+5) + (size/2)}) // 100 is where the first dot appears. 25 is the distance between dots
+      .attr("x", function(d,i) {
+        if (d == "Agriculture") return xPos[i] - 30
+        if (d == "Industry" || d == "Energy") return xPos[i] - 15
+        if (d == "Transportation") return xPos[i] - 40
+        if (d == "Other") return xPos[i] - 10
+        })
+      .attr("y", 10 + size * 2) // 100 is where the first dot appears. 25 is the distance between dots
       .style("fill", "black")
       .text(function(d){ return d})
       .attr("text-anchor", "left")
+      .attr("font-family", "Helvetica")
       .style("alignment-baseline", "middle")
 
       // -------------- Slider to select the year --------------
@@ -297,7 +311,7 @@ function displayMap() {
 
     function updateBar(year, countryName, countryData) {
 
-      document.getElementById("countryName").innerHTML = countryName + "  "
+      document.getElementById("countryName").innerHTML = countryName
       document.getElementById("countryEmission").innerHTML = countryData.total.toFixed(2) + " MtCo2e"
 
       var margin = {top: 50, right: 50, bottom: 50, left: 50},
@@ -370,7 +384,7 @@ function displayMap() {
 
       // append the svg object to the body of the page
       // set the dimensions and margins of the graph
-      var margin = {top: 50, right: 50, bottom: 50, left: 50},
+      var margin = {top: 50, right: 0, bottom: 50, left: 50},
       width = 300 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
 
@@ -416,13 +430,9 @@ function displayMap() {
         var Tooltip = d3.select(".mapLeft").select("#sectorChart")
         .append("div")
         .style("opacity", 0)
-        .attr("class", "tooltip")
-        .style("width", "120px")
+        .attr("class", "d3-tip")
+        .style("width", "150px")
         .style("background-color", "white")
-        .style("border", "solid")
-        .style("border-width", "2px")
-        .style("border-radius", "5px")
-        .style("padding", "5px")
 
         var rects = svg_barChart.selectAll("rect").data(stackedData)
 
