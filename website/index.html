@@ -52,6 +52,9 @@
     	</section>
         <section id="energy" class="section">
             <h1>Energy</h1>
+            <div id="energyChart"></div>
+            <div id="energyRidgeline"></div>
+
         </section>
         <section id="industry" class="section">
             <h1>Industry</h1>
@@ -117,6 +120,8 @@
   <script src="https://d3js.org/d3-scale-chromatic.v1.js"></script>
   <script src="JS/industry.js"></script>
   <script src="JS/transportation.js"></script>
+  <script src="JS/energy.js"></script>
+  <script src="JS/energy_ridgeline.js"></script>
 
 <script>
   $(document).ready(function () {
@@ -136,5 +141,7 @@
     displayMap();
     industry();
     transportation();
+    energy();
+    energy_ridgeline("World");
 </script>
 </html>

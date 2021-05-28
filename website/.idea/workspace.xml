@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5848f7d4-3cdc-4afe-8bb3-be90ea38f7c3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/JS/industry.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JS/industry.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JS/transport.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JS/transportation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/imgs/baby-car.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/imgs/deforestation.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/imgs/plane.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/imgs/train.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/imgs/truck.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/imgs/yatch.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +19,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="main" />
+        <entry key="$PROJECT_DIR$/.." value="adalsteinn-energy-stacked-chart" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -46,20 +34,16 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/imgs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/JS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/imgs" />
       <recent name="$PROJECT_DIR$/JS" />
-      <recent name="$PROJECT_DIR$/data" />
-      <recent name="$PROJECT_DIR$/lib" />
-      <recent name="$PROJECT_DIR$/fonts" />
+      <recent name="$PROJECT_DIR$/sections/Energy" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/imgs" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -77,8 +61,7 @@
       <workItem from="1621584699372" duration="4302000" />
       <workItem from="1621589171069" duration="1075000" />
       <workItem from="1621590259094" duration="10954000" />
-      <workItem from="1622015374129" duration="13498000" />
-      <workItem from="1622205438912" duration="3347000" />
+      <workItem from="1622015374129" duration="12472000" />
     </task>
     <servers />
   </component>
