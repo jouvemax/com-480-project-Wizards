@@ -1,3 +1,7 @@
+body {
+    font-family: "Helvetica";
+}
+
 .image {
     height: 100vh;
     width: 100vw;
@@ -7,6 +11,19 @@
     flex: 50%;
     margin-left: 6%;
     margin-right: 6%;
+}
+
+.lessRight {
+    margin-right: 3%;
+}
+
+.lessLeft {
+    margin-left: 3%;
+}
+
+.columnsImage {
+    width: 20vw;
+    height: auto;
 }
 
 .mapLeft {
@@ -36,6 +53,14 @@
 }
 
 p {
+    text-align: justify;
+    display: table-row;
+    text-align-last: justify;
+    font-family: "Helvetica";
+}
+
+.textblock {
+    font-size: 25px;
     text-align: justify;
     display: table-row;
     text-align-last: justify;
@@ -162,4 +187,63 @@ text{
 
 .details{
     color: black;
+}
+
+.center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.topPadding20{
+    padding-top: 20px;
+}
+
+.button {
+    width: 400px;
+    height: 100px;
+    background: #f3f0f1;
+    position: relative;
+    background: #f3f0f1;
+    margin-bottom: 25px;
+    border-radius: 32px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+span {
+    line-height: 100px;
+}
+&:nth-child(1) {
+     box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+     6px 6px 10px rgba(0, 0, 0, 0.2);
+     color: #6f6cde;
+&:hover {
+     opacity: 0.3;
+     box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+     6px 6px 10px rgba(0, 0, 0, 0.2);
+ }
+&:active {
+     opacity: 1;
+     box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5),
+     inset 8px 8px 16px rgba(0, 0, 0, 0.1);
+     color: #79e3b6;
+ }
+}
+&:nth-child(2) {
+     opacity: 0.3;
+     box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+     6px 6px 10px rgba(0, 0, 0, 0.2);
+     color: #6f6cde;
+ }
+&:nth-child(3) {
+     box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5),
+     inset 8px 8px 16px rgba(0, 0, 0, 0.1);
+     color: #79e3b6;
+&:hover {
+     opacity: 1;
+     box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+     6px 6px 10px rgba(0, 0, 0, 0.2);
+ }
+}
 }
