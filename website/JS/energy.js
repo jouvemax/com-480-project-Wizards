@@ -78,10 +78,9 @@ function energy() {
                 d3.selectAll(".legend")
                     .attr("fill", "black");
 
-
                 data = Sort(data, this.textContent);
                 d3.select(this)
-                    .attr("fill", "white");
+                    .attr("fill", "blue");
                 Draw(data);
             });
 
@@ -144,7 +143,7 @@ function energy() {
             .attr("class", "y axis")
             .call(yAxis)
 
-        var countries = svg.selectAll(".countries")
+        var components = svg.selectAll(".components")
             .data(data)
             .enter().append("g")
             .attr("class", "bar")
@@ -152,7 +151,7 @@ function energy() {
                 return "translate(0," + y(d.Entity) + ")";
             });
 
-        var bars = countries.selectAll("rect")
+        var bars = components.selectAll("rect")
             .data(d => {
                 return d.boxes;
             })
@@ -168,6 +167,16 @@ function energy() {
             })
             .style("fill", function (d) {
                 return color(d.name);
+            }).on('mouseover',function(d){
+                console.log("Hovered over", d);
+            tip.show(d);
+            d3.select(this)
+                .style('opacity', 0.8)
+            })
+            .on('mouseout', function(d){
+                tip.hide(d);
+                d3.select(this)
+                    .style('opacity', 1)
             });
 
         bars.append("text")
@@ -183,7 +192,7 @@ function energy() {
                 return (d.x1 - d.x0) > 3 ? (d.x1 - d.x0).toFixed(1) : ""
             });
 
-        countries.insert("rect", ":first-child")
+        components.insert("rect", ":first-child")
             .attr("height", y.bandwidth())
             .attr("x", "1")
             .attr("width", width)
@@ -210,7 +219,9 @@ function energy() {
             .style("stroke", "#000")
             .style("shape-rendering", "crispEdges")
 
+
         d3.selectAll(".tick text").on("click", function () {
+            console.log("clicked", this.textContent);
             energy_ridgeline(this.textContent);
         });
 

@@ -13,6 +13,14 @@ body {
     margin-right: 6%;
 }
 
+.height70{
+    height: 70vh;
+}
+
+.scrollable {
+    overflow-y: scroll;
+}
+
 .lessRight {
     margin-right: 3%;
 }

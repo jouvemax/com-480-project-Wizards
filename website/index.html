@@ -52,8 +52,11 @@
     	</section>
         <section id="energy" class="section">
             <h1>Energy</h1>
+            <div class="flex-container">
+<!--                <div id="energyChart" class="item scrollable height70"></div>-->
+                <div id="energyRidgeline" class="item"></div>
+            </div>
             <div id="energyChart"></div>
-            <div id="energyRidgeline"></div>
 
         </section>
         <section id="industry" class="section">
@@ -134,6 +137,7 @@
       anchors: ["Introduction", "Global-Overview"],
       slidesNavigation: true,
       controlArrows: true,
+        setAutoScrolling:false,
     });
   });
 </script>
