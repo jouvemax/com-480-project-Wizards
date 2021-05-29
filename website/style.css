@@ -3,8 +3,8 @@ body {
 }
 
 .image {
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
 }
 
 .item {
@@ -22,13 +22,12 @@ body {
 }
 
 .columnsImage {
-    width: 20vw;
+    width: 20%;
     height: auto;
 }
 
 .mapLeft {
     flex: 10%;
-    /* background-color: cornflowerblue; */
     display: table-row;
     height: 70vh;
     padding-left: 4%;
@@ -65,6 +64,7 @@ p {
     display: table-row;
     text-align-last: justify;
     font-family: "Helvetica";
+    height: 80%;
 }
 
 .flex-container {
@@ -104,10 +104,101 @@ h1 {
 }
 
 section {
-    height: 100vw;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     display: flex;
 }
+
+
+/* INDUSTRY PART */
+
+#industryviw {
+  width: 40%;
+  height: 50%;
+}
+
+/* AGRICULTURE PART */
+
+#agriculture_plot {
+  display: flex;
+  justify-content: center;
+}
+
+.buttons-agriculture {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}
+
+.buttons-agriculture > a {
+  margin: 50px;
+}
+
+
+.buttons-agriculture .button {
+  background-color: #a7c957;
+
+}
+
+.buttons-agriculture .button.active {
+  background-color: #6a994e;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.buttons-agriculture .button:hover {
+  background-color: #a7c957;
+}
+
+.buttons-agriculture .button.active:hover {
+  background-color: #6a994e;
+}
+
+
+/* Fullpage js styling */
+
+.fp-controlArrow {
+    position: absolute;
+    z-index: 4;
+    top: 65%;
+    cursor: pointer;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    margin-top: -38px;
+}
+.fp-controlArrow.fp-prev {
+    left: 25px;
+    width: 0;
+    border-width: 9.75px 8.5px 9.75px 0;
+    border-color: transparent black transparent transparent;
+}
+.fp-controlArrow.fp-next {
+    right: 25px;
+    border-width: 9.75px 0 9.75px 8.5px;
+    border-color: transparent transparent transparent black;
+}
+
+/* navigation dots color */
+#fp-nav ul li a span, .fp-slidesNav ul li a span {
+    background: black!important;
+}
+
+#fp-nav ul li .fp-tooltip {
+    position: absolute;
+    top: -2px;
+    color: black;
+    font-size: 9px;
+    font-family: helvetica, sans-serif;
+    white-space: nowrap;
+    max-width: 100px;
+    overflow: hidden;
+    display: block;
+    opacity: 0;
+    width: 0;
+    cursor: pointer;
+}
+
 
 /*----------------------  D3 JS MAP ------------------------------*/
 
@@ -200,15 +291,73 @@ text{
     padding-top: 20px;
 }
 
-.button {
-    width: 300px;
-    height: 80px;
+/* .button {
+    width: 400px;
+    height: 100px;
+    background: #f3f0f1;
     position: relative;
     background: #f3f0f1;
     margin-bottom: 25px;
     border-radius: 32px;
     text-align: center;
     cursor: pointer;
-    transition: all 0.5s ease-in-out;
-    font-size: 25px;
+    transition: all 0.1s ease-in-out;
+span {
+    line-height: 100px;
+}
+&:nth-child(1) {
+     box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+     6px 6px 10px rgba(0, 0, 0, 0.2);
+     color: #6f6cde;
+&:hover {
+     opacity: 0.3;
+     box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+     6px 6px 10px rgba(0, 0, 0, 0.2);
+ }
+&:active {
+     opacity: 1;
+     box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5),
+     inset 8px 8px 16px rgba(0, 0, 0, 0.1);
+     color: #79e3b6;
+ }
+}
+&:nth-child(2) {
+     opacity: 0.3;
+     box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+     6px 6px 10px rgba(0, 0, 0, 0.2);
+     color: #6f6cde;
+ }
+&:nth-child(3) {
+     box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5),
+     inset 8px 8px 16px rgba(0, 0, 0, 0.1);
+     color: #79e3b6;
+&:hover {
+     opacity: 1;
+     box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+     6px 6px 10px rgba(0, 0, 0, 0.2);
+ }
+}
+} */
+
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4ABCC4;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #44AEB5}
+
+.button:active {
+  background-color: #4ABCC4;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
