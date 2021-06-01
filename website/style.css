@@ -16,6 +16,10 @@ body {
 .height70{
     height: 70vh;
 }
+.height60{
+    height: 60vh;
+}
+
 
 .scrollable {
     overflow-y: scroll;
@@ -197,6 +201,21 @@ text{
     color: black;
 }
 
+.whiteText{
+    color: white;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+#energyHeader {
+}
+
+.linearGradient {
+    background-image: linear-gradient(red, yellow);
+}
+
 .center{
     display: flex;
     flex-direction: column;
@@ -219,4 +238,51 @@ text{
     cursor: pointer;
     transition: all 0.5s ease-in-out;
     font-size: 25px;
+}
+
+.textButton {
+    padding: 3px 5px;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #04aa6d;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 5px #999;
+}
+
+.textButton:hover {background-color: #3e8e41}
+
+.textButton:active {
+    background-color: #3e8e41;
+    box-shadow: 0 1px #666;
+    transform: translateY(4px);
+}
+
+.secTextButton {
+    padding: 3px 5px;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #6e867a;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 5px #999;
+}
+
+.secTextButton:hover {background-color: #3f4942
+}
+
+.secTextButton:active {
+    background-color: #2e322e;
+    box-shadow: 0 1px #666;
+    transform: translateY(4px);
+}
+
+.margin140{
+    margin-left: 140px;
 }

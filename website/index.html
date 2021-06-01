@@ -53,11 +53,25 @@
         <section id="energy" class="section">
             <h1>Energy</h1>
             <div class="flex-container">
-<!--                <div id="energyChart" class="item scrollable height70"></div>-->
-                <div id="energyRidgeline" class="item"></div>
-            </div>
-            <div id="energyChart"></div>
+                <div class="item lessRight">
+                    <div id="energyHeader">
+                        <div class="margin140">
+                            Here we see the energy sources from each country. <br/>
+                            You can sort the graph by <button id="changeMode" class="textButton">absolute</button> values
+                            and by clicking the energy sources in the legend.<br/>
+                            You can also <button class="textButton" id="changeCountries">exclude</button> the world and the continents or
+                            <button id="resetView" class="secTextButton">reset</button> the view.
+                        </div>
+                    </div>
+                    <div id="energyChart" class="scrollable height60">
+                    </div>
+                </div>
+                <div class="textblock item lessLeft">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget porta nulla, vitae rutrum quam. Vestibulum non leo id erat ornare molestie. Vestibulum non augue lacus. Suspendisse nibh lacus, varius nec augue imperdiet, gravida placerat ligula. Pellentesque lobortis facilisis nulla, ut vestibulum dui convallis ut. Fusce semper diam quis varius fringilla. Nam libero quam, dignissim eget faucibus pulvinar, eleifend vitae felis. Aliquam aliquam, diam at pharetra hendrerit, nisi tellus rhoncus odio, semper dignissim sapien diam id eros. Ut consectetur egestas magna vel lacinia.
 
+                </div>
+
+            </div>
         </section>
         <section id="industry" class="section">
             <h1>Industry</h1>
@@ -124,7 +138,6 @@
   <script src="JS/industry.js"></script>
   <script src="JS/transportation.js"></script>
   <script src="JS/energy.js"></script>
-  <script src="JS/energy_ridgeline.js"></script>
 
 <script>
   $(document).ready(function () {
@@ -145,7 +158,6 @@
     displayMap();
     industry();
     transportation();
-    energy_ridgeline("World");
     energy();
 </script>
 </html>
