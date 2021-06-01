@@ -1,8 +1,8 @@
 function industry() {
   // set the dimensions and margins of the graph
   var margin = {top: 50, right: 30, bottom: 40, left: 50},
-      width = 800 - margin.left - margin.right,
-      height = 750 - margin.top - margin.bottom;
+      width = 600 - margin.left - margin.right,
+      height = 600 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
   var svg = d3.select("#industryviz")
@@ -155,4 +155,3 @@ function industry() {
   })
 
 }
-

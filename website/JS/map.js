@@ -1,4 +1,9 @@
 function displayMap() {
+  // The map was inspired by the following code:
+  // http://bl.ocks.org/micahstubbs/535e57a3a2954a129c13701fe61c681d
+  // We then added all the additional functionalities (click, slider) to make it
+  // interactive
+
   d3.json("JS/world_countries.json", function(error1, map_data) {
     d3.json("JS/emissions_full_dataset.json", function(error2, emissions_data) {
 
@@ -71,7 +76,7 @@ function displayMap() {
 
       const legendElement = legend({
         color: color,
-        title: "Emissions MCo2te",
+        title: "Emissions MtCo2e",
         tickSize: 0
       })
       // and then append to some element
