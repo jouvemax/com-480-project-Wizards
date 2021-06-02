@@ -13,6 +13,18 @@ body {
     margin-right: 6%;
 }
 
+.flex70{
+    flex: 70%;
+    margin-left: 6%;
+    margin-right: 6%;
+}
+
+.flex30{
+    flex:30%;
+    margin-left: 6%;
+    margin-right: 6%;
+}
+
 .height70{
     height: 70vh;
 }
@@ -20,9 +32,18 @@ body {
     height: 60vh;
 }
 
+.spaceBetween{
+    justify-content: space-between;
+}
+
+.padding10{
+    padding: 10px;
+}
 
 .scrollable {
+    margin-right: 0;
     overflow-y: scroll;
+    overflow: -moz-scrollbars-vertical;
 }
 
 .lessRight {
@@ -36,6 +57,10 @@ body {
 .columnsImage {
     width: 20%;
     height: auto;
+}
+
+.lightGray {
+    background-color: #F5F5F5;
 }
 
 .mapLeft {
@@ -133,6 +158,7 @@ section {
     width: 100%;
     display: flex;
 }
+/* ENERGY PART */
 
 
 /* INDUSTRY PART */
@@ -142,7 +168,12 @@ section {
   height: 50%;
 }
 
+/* TRANSPORT PART */
+
+
 /* AGRICULTURE PART */
+
+
 
 #agriculture_plot {
   display: flex;
@@ -331,54 +362,6 @@ text{
     padding-top: 20px;
 }
 
-/* .button {
-    width: 400px;
-    height: 100px;
-    background: #f3f0f1;
-    position: relative;
-    background: #f3f0f1;
-    margin-bottom: 25px;
-    border-radius: 32px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.1s ease-in-out;
-span {
-    line-height: 100px;
-}
-&:nth-child(1) {
-     box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
-     6px 6px 10px rgba(0, 0, 0, 0.2);
-     color: #6f6cde;
-&:hover {
-     opacity: 0.3;
-     box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
-     6px 6px 10px rgba(0, 0, 0, 0.2);
- }
-&:active {
-     opacity: 1;
-     box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5),
-     inset 8px 8px 16px rgba(0, 0, 0, 0.1);
-     color: #79e3b6;
- }
-}
-&:nth-child(2) {
-     opacity: 0.3;
-     box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
-     6px 6px 10px rgba(0, 0, 0, 0.2);
-     color: #6f6cde;
- }
-&:nth-child(3) {
-     box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5),
-     inset 8px 8px 16px rgba(0, 0, 0, 0.1);
-     color: #79e3b6;
-&:hover {
-     opacity: 1;
-     box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
-     6px 6px 10px rgba(0, 0, 0, 0.2);
- }
-}
-} */
-
 .button {
   display: inline-block;
   padding: 15px 25px;
@@ -403,8 +386,8 @@ span {
 }
 
 .textButton {
-    padding: 3px 5px;
-    font-size: 14px;
+    padding: 5px 7px;
+    font-size: 20px;
     text-align: center;
     cursor: pointer;
     outline: none;
@@ -424,8 +407,8 @@ span {
 }
 
 .secTextButton {
-    padding: 3px 5px;
-    font-size: 14px;
+    padding: 5px 7px;
+    font-size: 20px;
     text-align: center;
     cursor: pointer;
     outline: none;
