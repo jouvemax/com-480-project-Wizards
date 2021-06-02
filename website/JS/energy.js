@@ -6,7 +6,7 @@ function energy() {
         bottom: 0,
         left: 140,
     }
-    let width = 700 - margin.left - margin.right,
+    let width = 900 - margin.left - margin.right,
         height = 4480 - margin.top - margin.bottom;
 
     let y = d3.scaleBand().rangeRound([0, height]).padding(0.3);

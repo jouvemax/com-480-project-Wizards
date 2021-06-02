@@ -13,6 +13,18 @@ body {
     margin-right: 6%;
 }
 
+.flex70{
+    flex: 70%;
+    margin-left: 6%;
+    margin-right: 6%;
+}
+
+.flex30{
+    flex:30%;
+    margin-left: 6%;
+    margin-right: 6%;
+}
+
 .height70{
     height: 70vh;
 }
@@ -20,8 +32,16 @@ body {
     height: 60vh;
 }
 
+.spaceBetween{
+    justify-content: space-between;
+}
+
+.padding10{
+    padding: 10px;
+}
 
 .scrollable {
+    margin-right: 0;
     overflow-y: scroll;
     overflow: -moz-scrollbars-vertical;
 }
