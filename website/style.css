@@ -2,6 +2,18 @@ body {
     font-family: "Helvetica";
 }
 
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, .5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+
 .image {
     height: 100%;
     width: 100%;
@@ -173,6 +185,9 @@ section {
 
 /* AGRICULTURE PART */
 
+.agriculture_title {
+  margin-top: 0px;
+}
 
 
 #agriculture_plot {
@@ -216,7 +231,7 @@ section {
 .fp-controlArrow {
     position: absolute;
     z-index: 4;
-    top: 65%;
+    top: 68%;
     cursor: pointer;
     width: 0;
     height: 0;

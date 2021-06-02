@@ -2,8 +2,8 @@ function transportation() {
 
 // set the dimensions and margins of the graph
     var margin = {top: 20, right: 10, bottom: 10, left: 10},
-        width = 800 - margin.left - margin.right,
-        height = 800 - margin.top - margin.bottom;
+        width = 700 - margin.left - margin.right,
+        height = 700 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
     var svg = d3.select("#transportationViz")
@@ -66,14 +66,14 @@ function transportation() {
             .attr('xlink:href', "imgs/baby-car.svg")
             .attr('width', 50)
             .attr('height', 50)
-            .attr("x", 640)
+            .attr("x", 540)
             .attr("y",25);
 
         var yatchImg = svg.append('image')
             .attr('xlink:href', "imgs/yatch.svg")
             .attr('width', 50)
             .attr('height', 50)
-            .attr("x", 640)
+            .attr("x", 540)
             .attr("y",100);
 
 
@@ -81,22 +81,22 @@ function transportation() {
             .attr('xlink:href', "imgs/plane.svg")
             .attr('width', 50)
             .attr('height', 70)
-            .attr("x", 640)
+            .attr("x", 540)
             .attr("y",175);
 
         var truckImg = svg.append('image')
             .attr('xlink:href', "imgs/truck.svg")
             .attr('width', 50)
             .attr('height', 50)
-            .attr("x", 640)
-            .attr("y",250);
+            .attr("x", 540)
+            .attr("y", 250);
 
 
         var trainImg = svg.append('image')
             .attr('xlink:href', "imgs/train.svg")
             .attr('width', 50)
             .attr('height', 50)
-            .attr("x", 640)
+            .attr("x", 540)
             .attr("y",325);
 
 
