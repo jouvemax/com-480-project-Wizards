@@ -1,26 +1,20 @@
 function energy() {
+    // This function generates the stacked bar chart which shows where the energy sources come from
     const margin = {
-            top: 47,
-            right: 20,
-            bottom: 0,
-            left: 140,
-        }
-        let width = 700 - margin.left - margin.right,
+        top: 47,
+        right: 20,
+        bottom: 0,
+        left: 140,
+    }
+    let width = 700 - margin.left - margin.right,
         height = 4480 - margin.top - margin.bottom;
 
-    let y = d3.scaleBand()
-        .rangeRound([0, height]).padding(0.3);
-
-    // const x = d3.scaleLinear().rangeRound([0, width]);
-    const x = d3.scaleLinear().domain([-100,100]).range([0,width]);
-
-
+    let y = d3.scaleBand().rangeRound([0, height]).padding(0.3);
+    const x = d3.scaleLinear().domain([-100, 100]).range([0, width]);
     const color = d3.scaleOrdinal().range(["#a31621", "#FF890A", "#FCBF49", "#A6994F", "#4C7F4F", "#488B49", "#4AAD52", "#034732"]);
-    const l2color = d3.scaleOrdinal().range(["#a21621", "#4C7F4F"]);
-    l2color.domain(["High Carbon", "Low Carbon"])
+    const l2color = d3.scaleOrdinal().range(["#a21621", "#4C7F4F"]).domain(["High Carbon", "Low Carbon"]);
 
     let lastSortKey = 'Entity';
-    let isAlphabetic = true;
     const xAxis = d3.axisTop(x);
     let yAxis = d3.axisLeft(y);
 
@@ -38,80 +32,77 @@ function energy() {
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + 0 + ")");
 
-    color.domain(["coal", "oil", "gas", "nuclear", "solar", "hydro", "wind", "other renewables"]);
-    let sources = ["coal", "oil", "gas", "nuclear", "solar", "hydro", "wind", "other renewables"];
-
     let tip = d3.tip().attr('class', 'd3-tip').html(d => {
         return `<strong>${d.country}: </strong><span class='capitalize details'>${d.name}<br/></span>
-                <strong>Relative: </strong> <span class='details'>${(d.relativ).toFixed(1)} % <br/></span>
+                <strong>Relative: </strong> <span class='details'>${(d.relative).toFixed(1)} % <br/></span>
                 <strong>absolute: </strong> <span class='details'>${(d.absolute).toFixed(2)} MtCo2e</span>`
     });
-
-    // Normal its relative so when its absolute is false then its relative
-    let isAbsolute = false;
-    let onlyIncludeCountries = false;
-    let notCountries = ['World', 'Asia Pacific', 'North America', 'Europe', 'Middle East', 'EU27+1', 'EU-27', 'CIS', 'Africa'
-    , 'Other Middle East', 'Other Asia & Pacific', 'South & Central America', 'Europe (other)', 'Other CIS',
-    'Other Caribbean', 'Other Northern Africa', 'Other South America', 'Other Southern Africa', 'Western Africa']
     svg.call(tip);
 
+    let isAbsolute = false; // Button state when switching from absolut to relative values in the graph
+    let onlyIncludeCountries = false; // Button state for including/excluding countries
+    const excludeEntities = ['World', 'Asia Pacific', 'North America', 'Europe', 'Middle East', 'EU27+1', 'EU-27', 'CIS', 'Africa'
+        , 'Other Middle East', 'Other Asia & Pacific', 'South & Central America', 'Europe (other)', 'Other CIS',
+        'Other Caribbean', 'Other Northern Africa', 'Other South America', 'Other Southern Africa', 'Western Africa']
+    const sources = ["coal", "oil", "gas", "nuclear", "solar", "hydro", "wind", "other renewables"];
+    color.domain(sources)
+    loadData();
 
-    function calculateBoxes(data){
+    function calculateBoxes(data) {
+        // This function calculates the size of each box in the rows in every bar chart
+        // Here you can change the Year
         const current_year = "2019";
         let current_data = [];
         data.forEach((d, i) => {
-
-            if(onlyIncludeCountries && notCountries.includes(d['Entity'])){
+            if (onlyIncludeCountries && excludeEntities.includes(d['Entity'])) {
                 return;
             }
-
-            if ((d["Year"]) == current_year) {
-                let total = 0;
-                sources.map(name => {
-                    //from string to number
-                    d[name] = Number(d[name]);
-                    total += d[name];
-                });
-                // calc percentages
-                sources.map(name => {
-                    //from string to number
-                    d[name + 'Percentage'] = d[name] * 100 / total;
-                });
-
-                d['High Carbon'] = d["coal"] + d["oil"] + d["gas"];
-                d['High CarbonPercentage'] = d["coalPercentage"] + d["oilPercentage"] + d["gasPercentage"];
-                d['Low Carbon'] = d['nuclear'] + d['solar'] + d['hydro'] + d['wind'] + d['other renewables'];
-                d['Low CarbonPercentage'] = d['nuclearPercentage'] + d['solarPercentage'] + d['hydroPercentage']
-                    + d['windPercentage'] + d['other renewablesPercentage'];
-
-                // Where the middle axis is positioned
-                let x0 = - (d["coalPercentage"] + d["oilPercentage"] + d["gasPercentage"]);
-                if (isAbsolute){
-                    x0 = - (d["coal"] + d["oil"] + d["gas"]);
-                }
-
-                d.boxes = sources.map(name => {
-                    return {
-                        name: name,
-                        x0: x0,
-                        x1: x0 += (isAbsolute) ? d[name] : d[name + 'Percentage'],
-                        n: i,
-                        absolute: d[name],
-                        total: total,
-                        country: d.Entity,
-                        relativ: d[name + 'Percentage']
-                    };
-                });
-                current_data.push(d);
+            if ((d["Year"]) !== current_year) {
+                return;
             }
+            let total = 0;
+            sources.map(name => {
+                // Emission value from string to number
+                d[name] = Number(d[name]);
+                total += d[name];
+            });
+            // calc percentages
+            sources.map(name => {
+                // Add percentage as a field to the data in e.g. 'coalPercentage'
+                d[name + 'Percentage'] = d[name] * 100 / total;
+            });
+            // Add up high and low carbon emissions
+            d['High Carbon'] = d["coal"] + d["oil"] + d["gas"];
+            d['High CarbonPercentage'] = d["coalPercentage"] + d["oilPercentage"] + d["gasPercentage"];
+            d['Low Carbon'] = d['nuclear'] + d['solar'] + d['hydro'] + d['wind'] + d['other renewables'];
+            d['Low CarbonPercentage'] = d['nuclearPercentage'] + d['solarPercentage'] + d['hydroPercentage']
+                + d['windPercentage'] + d['other renewablesPercentage'];
+
+            // calculate where the middle axis gets positioned
+            let x0 = (isAbsolute) ? (-(d["coal"] + d["oil"] + d["gas"])) :
+                (-(d["coalPercentage"] + d["oilPercentage"] + d["gasPercentage"]));
+            // For each country the info for the rectangles gets added here
+            d.boxes = sources.map(name => {
+                return {
+                    name: name,
+                    x0: x0,
+                    x1: x0 += (isAbsolute) ? d[name] : d[name + 'Percentage'],
+                    n: i,
+                    absolute: d[name],
+                    total: total,
+                    country: d['Entity'],
+                    relative: d[name + 'Percentage']
+                };
+            });
+            current_data.push(d);
         });
+        // The height of the complete bar chart get calculated based on the number of countries in the list
         height = current_data.length * 19.1 - 10;
         return current_data;
     }
 
-    loadData();
-
-    function loadData(){
+    function loadData() {
+        // This loads the data from the file and builds the graph
         d3.csv("JS/electricity_emissions.csv", function (error, data) {
             data = calculateBoxes(data);
 
@@ -120,8 +111,8 @@ function energy() {
             d3.select("#energyChart").select("svg")
                 .attr("height", height + margin.top + margin.bottom);
 
-            // Todo: store lastSorted in order to switch by relative and absolute values
             const startPoint2 = headerSvg.append("g");
+            // This is the "High Carbon, Low Carbon box"
             const legend2_tabs = [0, 180];
             const legend2_width = [179, 400];
             const legend2 = startPoint2.selectAll(".legend2")
@@ -139,7 +130,6 @@ function energy() {
                         .attr("text-decoration", "underline");
                     Draw(data);
                 });
-
 
             legend2.append("rect")
                 .attr("x", 0)
@@ -159,8 +149,6 @@ function energy() {
                 }).attr("rx", 3)
                 .attr("ry", 3);
 
-
-
             legend2.append("text")
                 .attr("x", 4)
                 .attr("y", 11)
@@ -172,7 +160,7 @@ function energy() {
                     return d;
                 });
 
-
+            // The energy source legend with the small boxes
             const startPoint = startPoint2.append("g");
             const legend_tabs = [4, 60, 120, 184, 250, 310, 380, 440];
             const legend = startPoint.selectAll(".legend")
@@ -221,23 +209,13 @@ function energy() {
 
             Draw(data);
 
-            function changeMode(){
+            function changeMode() {
                 isAbsolute = !isAbsolute;
                 data = calculateBoxes(data);
                 Draw(data);
             }
 
-            d3.select('#changeMode')
-                .on('click', function() {
-                    changeMode();
-                    if (isAbsolute){
-                        d3.select(this).text("relative");
-                    }else{
-                        d3.select(this).text("absolute");
-                    }
-                })
-
-            function setRelative(){
+            function setRelative() {
                 if (!isAbsolute) {
                     return;
                 }
@@ -246,7 +224,7 @@ function energy() {
                 Draw(data);
             }
 
-            function setAbsolute(){
+            function setAbsolute() {
                 if (isAbsolute) {
                     return;
                 }
@@ -255,26 +233,12 @@ function energy() {
                 Draw(data);
             }
 
-            d3.select('#relative')
-                .on('click', function() {
-                    setRelative();
-                })
-
-            d3.select('#absolute')
-                .on('click', function() {
-                    setAbsolute();
-                })
-
-            function sortAlphabetically(){
+            function sortAlphabetically() {
                 lastSortKey = 'Entity';
                 Draw(data);
             }
-            d3.select('#sortAlphabetically')
-                .on('click', function() {
-                    sortAlphabetically();
-                })
 
-            function resetView(){
+            function resetView() {
                 onlyIncludeCountries = false;
                 loadData();
                 setRelative();
@@ -285,42 +249,62 @@ function energy() {
                 d3.select('#changeCountries').text('exclude')
             }
 
+            d3.select('#changeMode')
+                .on('click', function () {
+                    changeMode();
+                    if (isAbsolute) {
+                        d3.select(this).text("relative");
+                    } else {
+                        d3.select(this).text("absolute");
+                    }
+                })
+
+            d3.select('#relative')
+                .on('click', function () {
+                    setRelative();
+                })
+
+            d3.select('#absolute')
+                .on('click', function () {
+                    setAbsolute();
+                })
+
             d3.select('#resetView')
-                .on('click', function() {
+                .on('click', function () {
                     resetView();
                 })
         });
     }
 
-    function changeCountryList(){
+    function changeCountryList() {
         onlyIncludeCountries = !onlyIncludeCountries;
         loadData();
     }
+
     d3.select('#changeCountries')
-        .on('click', function() {
+        .on('click', function () {
             changeCountryList();
-            if (onlyIncludeCountries){
+            if (onlyIncludeCountries) {
                 d3.select(this).text("include");
-            }else{
+            } else {
                 d3.select(this).text("exclude");
             }
         })
 
-
-
-    function Sort(data, sortKey, ascending=false) {
+    function Sort(data, sortKey, ascending = false) {
         lastSortKey = sortKey;
         if (!isAbsolute && sortKey !== 'Entity') {
             sortKey = sortKey + 'Percentage'
-        };
-        if(sortKey === 'Entity'){
+        }
+        ;
+        if (sortKey === 'Entity') {
             ascending = true;
         }
-        if (ascending){
+        if (ascending) {
             data.sort(function (a, b) {
                 return d3.ascending(a[sortKey], b[sortKey]);
             });
-        }else{
+        } else {
             data.sort(function (a, b) {
                 return d3.descending(a[sortKey], b[sortKey]);
             });
@@ -328,10 +312,8 @@ function energy() {
         return data;
     }
 
-
+    // Draws the axis and the boxes
     function Draw(data) {
-
-
         data = Sort(data, lastSortKey);
 
 
@@ -371,11 +353,15 @@ function energy() {
             .attr("transform", d => {
                 return "translate(0," + y(d.Entity) + ")";
             })
-            .attr("class", d => { return d.boxes[0].country + " bar"});
-            // This can be added to get the ridgeline functionality again
-            // .on('click', d => {
-            //     energy_ridgeline(d.boxes[0].country);
-            // });
+            .attr("class", d => {
+                return d.boxes[0].country + " bar"
+            });
+        // This can be added to get a ridgeline graph with the historical emission data from each country
+        // We decided in the end to leave it out as it cluttered the screen too much
+        // We still kept the code energy_ridgeline.js in the folder in case someone wants to have a look at it
+        // .on('click', d => {
+        //     energy_ridgeline(d.boxes[0].country);
+        // });
 
         const bars = rows.selectAll("rect")
             .data(d => {
@@ -393,19 +379,18 @@ function energy() {
             })
             .style("fill", function (d) {
                 return color(d.name);
-            }).on('mouseover',function(d){
-                tip.show(d);
-                d3.select(this)
-                    .style('fill-opacity', 0.5)
-            })
-            .on('mouseout', function(d){
+            }).on('mouseover', function (d) {
+            tip.show(d);
+            d3.select(this)
+                .style('fill-opacity', 0.5)
+        })
+            .on('mouseout', function (d) {
                 tip.hide(d);
                 d3.select(this)
                     .style('fill-opacity', 1)
             })
             .attr("rx", 1)
             .attr("ry", 1);
-
 
         bars.append("text")
             .attr("x", function (d) {
@@ -445,7 +430,5 @@ function energy() {
             .style("fill", "none")
             .style("stroke", "#000")
             .style("shape-rendering", "crispEdges")
-
     }
-
 }
