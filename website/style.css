@@ -175,6 +175,17 @@ section {
     width: 100%;
     display: flex;
 }
+
+/* GLOBAL OVERVIEW */
+
+.click_me_left {
+  position:absolute;
+  height: 6%;
+  top: 15%;
+  right:15%;
+}
+
+
 /* ENERGY PART */
 
 .energy_title {
@@ -227,6 +238,11 @@ section {
   padding: 0px
 }
 
+.click_me_right {
+  height: 6%;
+  margin-left: 47%;
+}
+
 
 /* INDUSTRY PART */
 
@@ -237,13 +253,6 @@ section {
 
 #industry_section strong {
   color: #495057;
-}
-
-
-/* TRANSPORT PART */
-
-#transportation_section strong {
-  color: #023e8a;
 }
 
 
@@ -291,6 +300,19 @@ section {
 
 .buttons-agriculture .button.active:hover {
   background-color: #6a994e;
+}
+
+/* TRANSPORT PART */
+
+#transportation_section strong {
+  color: #023e8a;
+}
+
+.move_me {
+  position:absolute;
+  height: 6%;
+  top: 65%;
+  right:45%;
 }
 
 
