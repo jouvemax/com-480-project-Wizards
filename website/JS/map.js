@@ -114,7 +114,7 @@ function displayMap() {
       // create a list of keys
       var keys = ["Agriculture", "Industry", "Energy", "Transportation", "Other"]
 
-      var colors = ['#4daf4a','#e5e5e5','#fca311', '#023e8a', '#abc4ff']
+      var colors = ['#4daf4a','#495057','#fca311', '#023e8a', '#abc4ff']
 
       // Add one dot in the legend for each name.
       var size = 20
@@ -424,7 +424,7 @@ function displayMap() {
         ];
 
 
-        var colors = ['#4daf4a', '#e5e5e5', '#fca311', '#023e8a', '#abc4ff'].reverse()
+        var colors = ['#4daf4a', '#495057', '#fca311', '#023e8a', '#abc4ff'].reverse()
 
         y_barChart = d3.scaleLinear()
         .domain([0, 100])
