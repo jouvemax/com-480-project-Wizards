@@ -112,6 +112,10 @@ p {
     font-family: "Helvetica";
 }
 
+a {
+  color: black;
+}
+
 .textblock {
     font-size: 20px;
     /* text-align: justify; */
@@ -172,6 +176,56 @@ section {
 }
 /* ENERGY PART */
 
+.energy_title {
+  margin-top: 0px;
+}
+
+#energy_section strong {
+  color: #fca311;
+}
+
+.lightbulbImage {
+    width: 42%;
+    margin-right: 6%;
+    height: 40%;
+}
+
+.buttons-energy {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}
+
+.buttons-energy > button {
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 50px;
+  margin-bottom: 0px;
+}
+
+.buttons-energy .textButton {
+  background-color: #fca311;
+}
+
+.buttons-energy .textButton:hover {
+  background-color: #f3722c;
+}
+
+
+#energyHeader {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+#energyChart {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 85%;
+  padding: 0px
+}
+
 
 /* INDUSTRY PART */
 
@@ -180,13 +234,26 @@ section {
   height: 50%;
 }
 
+#industry_section strong {
+  color: #495057;
+}
+
+
 /* TRANSPORT PART */
+
+#transportation_section strong {
+  color: #023e8a;
+}
 
 
 /* AGRICULTURE PART */
 
 .agriculture_title {
   margin-top: 0px;
+}
+
+#agriculture_section strong {
+  color: #4daf4a;
 }
 
 
@@ -357,9 +424,6 @@ text{
 
 .capitalize {
     text-transform: capitalize;
-}
-
-#energyHeader {
 }
 
 .linearGradient {

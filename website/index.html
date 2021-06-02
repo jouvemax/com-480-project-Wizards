@@ -75,7 +75,7 @@
         <section id="energy_section" class="section">
 
             <div class="slide">
-                <h1>Energy</h1>
+                <h1 class="energy_title">Energy</h1>
                 <div class="flex-container">
                     <div class="item textblock lessRight">
                         With around <strong>35%</strong> of the total emissions, energy is the biggest contributing sector.
@@ -86,8 +86,7 @@
                         Although nuclear energy is not widely accepted because of the danger it presents, and the nuclear waste
                         it produces, it is a form of energy that does not emit Co2.
                         It is actually the second biggest source of low carbon energy, just after hydropower <a href="#ref_7">[7]</a>.
-                    </div>
-                    <div class="item textblock lessLeft">
+                        <br/><br/>
                         On the other hand, regarding heating, the technology is already here. For example, the wide use of
                         heat pumps, with better thermic insulation could help us reduce emissions in the following decades <a href="#ref_8">[8]</a>.
                         On top of that, if clean electricity gets cheaper, we will be able to transition to electric heating
@@ -97,34 +96,40 @@
                         the world <a href="#ref_9">[9]</a>. Feel free to rank the countries based on one kind of production, look at relative or
                         absolute data.
                     </div>
+                    <img class="lessLeft lightbulbImage" src="imgs/ampoule.jpg">
                 </div>
             </div>
             <div class="slide">
-                <div class="flex-container">
-                    <div class=" lessRight flex70">
-                        <div id="energyHeader">
+                <!-- <div class="flex-container"> -->
+                    <!-- <div class=" lessRight flex70"> -->
+                        <div id="energyHeader"></div>
 
+                        <div id="energyChart" class="scrollable height60"></div>
+
+                        <div class="flex-container buttons-energy">
+                          <button class="textButton" id="changeMode">Absolute values</button>
+                          <button class="textButton" id="changeCountries">Exclude World and Continents</button>
+                          <button class="secTextButton" id="resetView">Reset</button>
                         </div>
-                        <div id="energyChart" class="scrollable height60">
-                        </div>
-                    </div>
-                    <div class="textblock lessLeft flex30">
-                        <div>
+                    <!-- </div> -->
+                    <!-- <div class="textblock lessLeft flex30"> -->
+                        <!-- <div>
                             Here we see the energy sources from each country. <br/>
                             You can sort the graph by <button id="changeMode" class="textButton">absolute</button> values
                             and by clicking the energy sources in the legend.<br/>
                             You can also <button class="textButton" id="changeCountries">exclude</button> the world and the continents or
                             <button id="resetView" class="secTextButton">reset</button> the view.
-                        </div>
-                    </div>
+                        </div> -->
+                    <!-- </div> -->
 
-            </div>
+            <!-- </div> -->
 
         </section>
         <section id="industry_section" class="section">
             <h1>Industry</h1>
             <div class="flex-container">
-                <div class="item textblock">
+              <div id="industryviz" class="item"></div>
+              <div class="item textblock">
                   It is not widely known, but <strong>producing materials, objects and chemicals</strong> is one of the biggest sources of
                   emissions, 23% of the total.
                   Unfortunately, It is also one of the sectors that needs the most innovation in order to reduce its emissions.
@@ -137,8 +142,7 @@
                   It is thus crucial to find <strong>new ways to produce</strong> these materials without emitting too much Co2.
                   <br></br>
                   In this plot, have a look at the trends regarding materials productions since 1990 <a href="#ref_11">[11]</a>.
-                </div>
-                <div id="industryviz" class="item"></div>
+              </div>
             </div>
 
         </section>

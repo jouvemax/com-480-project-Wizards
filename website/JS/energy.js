@@ -6,7 +6,7 @@ function energy() {
         bottom: 0,
         left: 140,
     }
-    let width = 900 - margin.left - margin.right,
+    let width = 1200 - margin.left - margin.right,
         height = 4480 - margin.top - margin.bottom;
 
     let y = d3.scaleBand().rangeRound([0, height]).padding(0.3);
@@ -23,7 +23,7 @@ function energy() {
         .attr("width", width + margin.left + margin.right)
         .attr("height", 70)
         .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        .attr("transform", "translate(" + (margin.left) + "," + margin.top + ")");
 
     let svg = d3.select("#energyChart").append("svg")
         .attr("width", width + margin.left + margin.right)
@@ -138,14 +138,14 @@ function energy() {
                 })
                 .attr("height", 42)
                 .style("fill", l2color)
-                .style('fill-opacity', 0.3)
+                .style('opacity', 0.3)
                 .on('mouseover', function () {
                     d3.select(this)
-                        .style('fill-opacity', 0.5)
+                        .style('opacity', 0.5)
                 })
                 .on('mouseout', function () {
                     d3.select(this)
-                        .style('fill-opacity', 0.3)
+                        .style('opacity', 0.3)
                 }).attr("rx", 3)
                 .attr("ry", 3);
 
@@ -170,14 +170,14 @@ function energy() {
                 .attr("transform", function (d, i) {
                     return "translate(" + legend_tabs[i] + ",-20)";
                 })
-                .style('fill-opacity', 0.8)
+                .style('opacity', 0.8)
                 .on('mouseover', function () {
                     d3.select(this)
-                        .style('fill-opacity', 1)
+                        .style('opacity', 1)
                 })
                 .on('mouseout', function () {
                     d3.select(this)
-                        .style('fill-opacity', 0.8)
+                        .style('opacity', 0.8)
                 })
                 .on("click", function () {
                     lastSortKey = this.textContent;
@@ -245,17 +245,17 @@ function energy() {
                 sortAlphabetically();
                 d3.selectAll(".legend, .legend2")
                     .attr("text-decoration", "none");
-                d3.select('#changeMode').text('absolute');
-                d3.select('#changeCountries').text('exclude')
+                d3.select('#changeMode').text('Absolute values');
+                d3.select('#changeCountries').text('Exclude World and Continents')
             }
 
             d3.select('#changeMode')
                 .on('click', function () {
                     changeMode();
                     if (isAbsolute) {
-                        d3.select(this).text("relative");
+                        d3.select(this).text("Relative values");
                     } else {
-                        d3.select(this).text("absolute");
+                        d3.select(this).text("Absolute Values");
                     }
                 })
 
@@ -285,9 +285,9 @@ function energy() {
         .on('click', function () {
             changeCountryList();
             if (onlyIncludeCountries) {
-                d3.select(this).text("include");
+                d3.select(this).text("Include World and Continents");
             } else {
-                d3.select(this).text("exclude");
+                d3.select(this).text("Exclude World and Continents");
             }
         })
 
@@ -382,12 +382,12 @@ function energy() {
             }).on('mouseover', function (d) {
             tip.show(d);
             d3.select(this)
-                .style('fill-opacity', 0.5)
+                .style('opacity', 0.5)
         })
             .on('mouseout', function (d) {
                 tip.hide(d);
                 d3.select(this)
-                    .style('fill-opacity', 1)
+                    .style('opacity', 1)
             })
             .attr("rx", 1)
             .attr("ry", 1);
@@ -406,7 +406,7 @@ function energy() {
             .attr("height", y.bandwidth())
             .attr("x", "1")
             .attr("width", width)
-            .attr("fill-opacity", "0.5")
+            .attr("opacity", "0.5")
             .style("fill", "#f0f0f0")
             .attr("class", function (d) {
                 return "backgroundBar " + d.boxes[0].country;
