@@ -186,7 +186,7 @@ section {
 
 #fp-nav ul li .fp-tooltip {
     position: absolute;
-    top: -2px;
+    top: 1px;
     color: black;
     font-size: 9px;
     font-family: helvetica, sans-serif;
