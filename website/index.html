@@ -12,14 +12,37 @@
             <img src="imgs/planetB.jpg" class="image">
     	</section>
         <section id="intro" class="section">
-            <h1>INTRODUCTION</h1>
+            <h1 class="introTitle">INTRODUCTION</h1>
             <div class="flex-container">
-                <div class="item textblock">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget porta nulla, vitae rutrum quam. Vestibulum non leo id erat ornare molestie. Vestibulum non augue lacus. Suspendisse nibh lacus, varius nec augue imperdiet, gravida placerat ligula. Pellentesque lobortis facilisis nulla, ut vestibulum dui convallis ut. Fusce semper diam quis varius fringilla. Nam libero quam, dignissim eget faucibus pulvinar, eleifend vitae felis. Aliquam aliquam, diam at pharetra hendrerit, nisi tellus rhoncus odio, semper dignissim sapien diam id eros. Ut consectetur egestas magna vel lacinia.
-                    Aliquam aliquam, diam at pharetra hendrerit, nisi tellus rhoncus odio, semper dignissim sapien diam id eros. Ut consectetur egestas magna vel lacinia.
+                <div class="item textblock lessRight introduction">
+
+                  Hey, welcome to our website!
+                  <br></br>
+                  We are three EPFL students and we wanted to dedicate our data visualization knowledge to a topic we care about,
+                   and we really think you should too: <strong>Climate Change</strong>. The recent increase in temperature globally
+                   is very likely due to our Co2 emissions that have been exploding in the past few decades <a href="#ref_1">[1]</a>.
+                   This phenomenon is known as the greenhouse effect <a href="#ref_2">[2]</a>.
+                  <br></br>
+                  We are not specialists about the subject, and while diving deeper, we realised that we were lacking simple
+                   ressources that introduce the topic in its globality. We wanted everyone to have a basic understanding
+                   of greenhouse gases emissions, and where they are coming from.
+                  We will start with a <strong>Global overview of emissions</strong>, and then dive into
+                  each sector: <strong>Energy</strong>, <strong>Industry</strong>, <strong>Agriculture</strong>,
+                  and <strong>Transportation</strong>.
+                  <br></br>
+                  In the following part, you will have an overview of Co2 emissions worldwide, from 1990 to 2017 <a href="#ref_4">[4]</a>.
+                  We used the Co2e metric <a href="#ref_3">[3]</a>, thus allowing us to gather all greenhouse gases emissions in the same value.
+                  Please feel free to explore by choosing different years (slider), countries (click).
+
+
                 </div>
-                <div class="item">
-                    <img src="imgs/planet.svg" class="planetImage">
+                <div class="item textblock lessLeft introduction">
+
+                  <br></br>
+                  <span>Observe the total emissions changing, the split between each sector evolving…</span>
+                  <span>Ps: Have a look at Norway in 2017 or countries in green to see the effects of reforestation.</span>
+
+                  <img src="imgs/planet.svg" class="planetImage">
                 </div>
             </div>
         </section>
@@ -76,11 +99,18 @@
             <h1>Industry</h1>
             <div class="flex-container">
                 <div class="item textblock">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget porta nulla, vitae rutrum quam. Vestibulum non leo id erat ornare molestie. Vestibulum non augue lacus. Suspendisse nibh lacus, varius nec augue imperdiet, gravida placerat ligula.
-                    <br></br>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget porta nulla, vitae rutrum quam. Vestibulum non leo id erat ornare molestie. Vestibulum non augue lacus. Suspendisse nibh lacus, varius nec augue imperdiet, gravida placerat ligula.
-                    <br></br>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget porta nulla, vitae rutrum quam. Vestibulum non leo id erat ornare molestie. Vestibulum non augue lacus. Suspendisse nibh lacus, varius nec augue imperdiet, gravida placerat ligula.
+                  It is not widely known, but <strong>producing materials, objects and chemicals</strong> is one of the biggest sources of
+                  emissions, 23% of the total.
+                  Unfortunately, It is also one of the sectors that needs the most innovation in order to reduce its emissions.
+                  For example, the <strong>process</strong> needed to create cement <strong>directly creates Co2</strong> that is released into the atmosphere.
+                  It involves a calcination reaction that is responsible for two thirds of the emissions linked to cement
+                  production <a href="#ref_10">[10]</a>.
+                  Moreover, we will not stop building cities (cement, iron, steel) any time soon, as the total population
+                  will increase until 2100 according to estimations.
+                  <br></br>
+                  It is thus crucial to find <strong>new ways to produce</strong> these materials without emitting too much Co2.
+                  <br></br>
+                  In this plot, have a look at the trends regarding materials productions since 1990 <a href="#ref_11">[11]</a>.
                 </div>
                 <div id="industryviz" class="item"></div>
             </div>
@@ -91,10 +121,27 @@
                 <h1>Agriculture</h1>
                 <div class="flex-container">
                     <div class="item textblock">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget porta nulla, vitae rutrum quam. Vestibulum non leo id erat ornare molestie. Vestibulum non augue lacus. Suspendisse nibh lacus, varius nec augue imperdiet, gravida placerat ligula. Pellentesque lobortis facilisis nulla, ut vestibulum dui convallis ut. Fusce semper diam quis varius fringilla. Nam libero quam, dignissim eget faucibus pulvinar, eleifend vitae felis. Aliquam aliquam, diam at pharetra hendrerit, nisi tellus rhoncus odio, semper dignissim sapien diam id eros. Ut consectetur egestas magna vel lacinia.
-
-                        Fusce semper diam quis varius fringilla. Nam libero quam, dignissim eget faucibus pulvinar, eleifend vitae felis. Aliquam aliquam, diam at pharetra hendrerit, nisi tellus rhoncus odio, semper dignissim sapien diam id eros. Ut consectetur egestas magna vel lacinia.
-
+                      The agricultural sector accounts for 21% of the total Co2 emissions.
+                      We can distinguish three main sources <a href="#ref_5">[5]</a>:
+                      Food production (65%)
+                      Deforestation (19%)
+                      Food waste (16%)
+                      <br></br>
+                      The emissions from food production are mostly due to <strong>cattle</strong>, and the use of <strong>fertilizers</strong>.
+                      We can estimate that farts and burps from bovine account for 4% of the total Co2 emissions annually <a href="#ref_12">[12]</a>.
+                      As a <strong>consumer</strong>, the best way to reduce our carbon footprint is to reduce the consumption of food
+                      emitting lots of Co2 while being produced.
+                      <br></br>
+                      Then, comes <strong>deforestation</strong>, which is expanding to increase the size of cultivable lands. Whenever we
+                      burn a tree, the Co2 it had accumulated over its lifetime is directly dumped into the atmosphere.
+                      <br></br>
+                      Finally, <strong>food waste</strong> is still responsible for a large amount of the emissions of the agricultural sector.
+                      In most industrialized countries, around 20% of food is wasted. Not so surprisingly, the winner of this
+                      controversial price is the USA: between 30 and 40% of the food supply ends up in the trash <a href="#ref_13">[13]</a>.
+                      This is definitely an area that must be improved: both for people struggling to eat enough, and
+                      for the environment.
+                      <br></br>
+                      For this part, we invite you to discover the amount of Co2 produced per 1kg for various products <a href="#ref_14">[14]</a>.
                     </div>
                     <img class="item columnsImage" src="imgs/deforestation.jpg">
                 </div>
@@ -113,7 +160,20 @@
                 <div id="transportationViz" class="item lessRight"></div>
                 <div class="item lessLeft">
                     <div class="textblock">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget porta nulla, vitae rutrum quam. Vestibulum non leo id erat ornare molestie. Vestibulum non augue lacus. Suspendisse nibh lacus, varius nec augue imperdiet, gravida placerat ligula. Pellentesque lobortis facilisis nulla, ut vestibulum dui convallis ut. Fusce semper diam quis varius fringilla. Nam libero quam, dignissim eget faucibus pulvinar, eleifend vitae felis. Aliquam aliquam, diam at pharetra hendrerit, nisi tellus rhoncus odio, semper dignissim sapien diam id eros. Ut consectetur egestas magna vel lacinia.
+                      Finally, with around 18% of the total emissions, the <strong>transportation sector</strong> comes last.
+                      Usually, people tend to overestimate the emissions linked to this sector.
+                      <br></br>
+                      The good news is that <strong>most terrestrial vehicles can be electrified</strong>.
+                      Combined with low carbon energy sources, we can decarbonate most of those emissions.
+                      <br></br>
+                      However, reducing the impact of bigger means of  transport such as planes, or shipping will be difficult.
+                      Indeed, batteries used for electric vehicles are too heavy to be used for aviation or shipping.
+                      The future of aviation will <strong>require new innovations</strong> that are currently, either still in development
+                      (hydrogen for example) or too expensive (sustainable fuels) compared to fossil fuels <a href="#ref_15">[15]</a>.
+                      <br></br>
+                      For this last part, we invite you to place each icon (representing a means of transportation) into
+                      its corresponding box (total emissions) <a href="#ref_16">[16]</a>. When you are ready, click on the button to see if you are correct.
+
                     </div>
                     <div class="center topPadding20">
                         <button class="button" id="correct-button">SHOW SOLUTION</button>
@@ -123,6 +183,26 @@
         </section>
         <section id="references_section" class="section">
           <h1>References</h1>
+          <div class="flex-container">
+          <div class="item textblock">
+            <span id="ref_1">[1] <a href="https://climate.nasa.gov/evidence/">https://climate.nasa.gov/evidence/</a></span>
+            <span id="ref_2">[2] <a href="https://en.wikipedia.org/wiki/Greenhouse_effect">https://en.wikipedia.org/wiki/Greenhouse_effect</a></span>
+            <span id="ref_3">[3] <a href="https://en.wikipedia.org/wiki/Global_warming_potential">https://en.wikipedia.org/wiki/Global_warming_potential</a></span>
+            <span id="ref_4">[4] <a href="https://www.climatewatchdata.org/data-explorer">https://www.climatewatchdata.org/data-explorer</a></span>
+            <span id="ref_5">[5] <a href="https://www.breakthroughenergy.org/go-deeper/sectoral-analysis">https://www.breakthroughenergy.org/go-deeper/sectoral-analysis</a></span>
+            <span id="ref_6">[6] <a href="https://ourworldindata.org/cheap-renewables-growth#">https://ourworldindata.org/cheap-renewables-growth#</a></span>
+            <span id="ref_7">[7] <a href="https://www.iaea.org/nuclear-power-and-the-clean-energy-transition/what-is-the-clean-energy-transition-and-how-does-nuclear-power-fit-in">https://www.iaea.org/nuclear-power-and-the-clean-energy-transition/what-is-the-clean-energy-transition-and-how-does-nuclear-power-fit-in</a></span>
+            <span id="ref_8">[8] <a href="https://spectrum.ieee.org/energywise/energy/environment/heat-pumps-could-shrink-the-carbon-footprint-of-buildings">https://spectrum.ieee.org/energywise/energy/environment/heat-pumps-could-shrink-the-carbon-footprint-of-buildings</a></span>
+            <span id="ref_9">[9] <a href="https://github.com/owid/energy-data">https://github.com/owid/energy-data</a></span>
+            <span id="ref_10">[10] <a href="https://www.iea.org/articles/the-challenge-of-reaching-zero-emissions-in-heavy-industry">https://www.iea.org/articles/the-challenge-of-reaching-zero-emissions-in-heavy-industry</a></span>
+            <span id="ref_11">[11] <a href="https://ourworldindata.org/food-choice-vs-eating-local">https://ourworldindata.org/food-choice-vs-eating-local</a></span>
+            <span id="ref_12">[12] <a href="http://www.fao.org/resources/infographics/infographics-details/en/c/218650/">http://www.fao.org/resources/infographics/infographics-details/en/c/218650/</a></span>
+            <span id="ref_13">[13] <a href="https://www.usda.gov/foodwaste/faqs#">https://www.usda.gov/foodwaste/faqs#</a></span>
+            <span id="ref_14" >[14] <a href="https://ourworldindata.org/food-choice-vs-eating-local">https://ourworldindata.org/food-choice-vs-eating-local</a></span>
+            <span id="ref_15">[15] <a href="https://centreforaviation.com/analysis/reports/europe-leads-world-aviation-towards-net-zero-carbon-emissions-553358">https://centreforaviation.com/analysis/reports/europe-leads-world-aviation-towards-net-zero-carbon-emissions-553358</a></span>
+            <span id="ref_16">[16] <a href="https://www.iea.org/data-and-statistics/charts/transport-sector-co2-emissions-by-mode-in-the-sustainable-development-scenario-2000-2030">https://www.iea.org/data-and-statistics/charts/transport-sector-co2-emissions-by-mode-in-the-sustainable-development-scenario-2000-2030</a></span>
+          </div>
+        </div>
         </section>
 
     </div>

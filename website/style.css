@@ -60,7 +60,12 @@ body {
 
 .planetImage {
     vertical-align: middle;
-    display: inline-block;
+    display: flex;
+    width: 80%;
+    height: 80%;
+    justify-content: center;
+    margin: auto;
+
 }
 
 p {
@@ -71,12 +76,20 @@ p {
 }
 
 .textblock {
-    font-size: 25px;
-    text-align: justify;
+    font-size: 20px;
+    /* text-align: justify; */
+    word-spacing:-2px;
     display: table-row;
-    text-align-last: justify;
+    /* text-align-last: justify; */
+    text-align: justify;
+    text-justify: distribute;
+    text-align-last: left;
     font-family: "Helvetica";
     height: 80%;
+}
+
+.textblock > span {
+  display: block;
 }
 
 .flex-container {
