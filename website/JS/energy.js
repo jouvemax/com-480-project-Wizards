@@ -13,17 +13,20 @@ function energy() {
     const x = d3.scaleLinear().domain([-100, 100]).range([0, width]);
     const color = d3.scaleOrdinal().range(["#a31621", "#FF890A", "#FCBF49", "#A6994F", "#4C7F4F", "#488B49", "#4AAD52", "#034732"]);
     const l2color = d3.scaleOrdinal().range(["#a21621", "#4C7F4F"]).domain(["High Carbon", "Low Carbon"]);
+    const sources = ["coal", "oil", "gas", "nuclear", "solar", "hydro", "wind", "other renewables"];
+    color.domain(sources)
 
     let lastSortKey = 'Entity';
     const xAxis = d3.axisTop(x);
     let yAxis = d3.axisLeft(y);
+    let headerMarginleft = 200;
 
     let headerSvg = d3.select('#energyHeader')
         .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", 70)
         .append("g")
-        .attr("transform", "translate(" + (margin.left) + "," + margin.top + ")");
+        .attr("transform", "translate(" + (margin.left-3.5) + "," + margin.top + ")");
 
     let svg = d3.select("#energyChart").append("svg")
         .attr("width", width + margin.left + margin.right)
@@ -31,6 +34,88 @@ function energy() {
         .attr("id", "d3-plot")
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + 0 + ")");
+
+    const startPoint2 = headerSvg.append("g");
+    // This is the "High Carbon, Low Carbon box"
+    const legend2_tabs = [0, 520];
+    const legend2_width = [519, 519];
+    const legend2 = startPoint2.selectAll(".legend2")
+        .data(l2color.domain())
+        .enter().append("g")
+        .attr("class", "legend2")
+        .attr("transform", function (d, i) {
+            return "translate(" + legend2_tabs[i] + ",-40)";
+        });
+
+    legend2.append("rect")
+        .attr("x", 0)
+        .attr("width", function (d, i) {
+            return legend2_width[i];
+        })
+        .attr("height", 42)
+        .style("fill", l2color)
+        .style('opacity', 0.3)
+        .on('mouseover', function () {
+            d3.select(this)
+                .style('opacity', 0.5)
+        })
+        .on('mouseout', function () {
+            d3.select(this)
+                .style('opacity', 0.3)
+        }).attr("rx", 3)
+        .attr("ry", 3);
+
+    legend2.append("text")
+        .attr("x", 4)
+        .attr("y", 11)
+        .attr("dy", ".35em")
+        .style("text-anchor", "begin")
+        .style("font", "14px sans-serif")
+        .style("text-transform", "capitalize")
+        .text(function (d) {
+            return d;
+        });
+
+    // The energy source legend with the small boxes
+    const offset = 340;
+    const startPoint = startPoint2.append("g");
+    const legend_tabs = [4, 60, 120, 184 + offset, 250 + offset, 310 + offset, 380 + offset, 440 + offset];
+    const legend = startPoint.selectAll(".legend")
+        .data(color.domain().slice())
+        .enter().append("g")
+        .attr("class", "legend")
+        .attr("transform", function (d, i) {
+            return "translate(" + legend_tabs[i] + ",-20)";
+        })
+        .style('opacity', 0.8)
+        .on('mouseover', function () {
+            d3.select(this)
+                .style('opacity', 1)
+        })
+        .on('mouseout', function () {
+            d3.select(this)
+                .style('opacity', 0.8)
+        });
+
+    legend.append("rect")
+        .attr("x", 0)
+        .attr("width", 18)
+        .attr("height", 18)
+        .style("fill", color)
+        .attr("rx", 3)
+        .attr("ry", 3);
+
+    legend.append("text")
+        .attr("x", 22)
+        .attr("y", 9)
+        .attr("dy", ".35em")
+        .style("text-anchor", "begin")
+        .style("font", "12px sans-serif")
+        .style("text-transform", "capitalize")
+        .text(function (d) {
+            return d;
+        });
+
 
     let tip = d3.tip().attr('class', 'd3-tip').html(d => {
         return `<strong>${d.country}: </strong><span class='capitalize details'>${d.name}<br/></span>
@@ -44,8 +129,10 @@ function energy() {
     const excludeEntities = ['World', 'Asia Pacific', 'North America', 'Europe', 'Middle East', 'EU27+1', 'EU-27', 'CIS', 'Africa'
         , 'Other Middle East', 'Other Asia & Pacific', 'South & Central America', 'Europe (other)', 'Other CIS',
         'Other Caribbean', 'Other Northern Africa', 'Other South America', 'Other Southern Africa', 'Western Africa']
-    const sources = ["coal", "oil", "gas", "nuclear", "solar", "hydro", "wind", "other renewables"];
-    color.domain(sources)
+
+
+
+
     loadData();
 
     function calculateBoxes(data) {
@@ -101,6 +188,8 @@ function energy() {
         return current_data;
     }
 
+
+
     function loadData() {
         // This loads the data from the file and builds the graph
         d3.csv("JS/electricity_emissions.csv", function (error, data) {
@@ -111,17 +200,7 @@ function energy() {
             d3.select("#energyChart").select("svg")
                 .attr("height", height + margin.top + margin.bottom);
 
-            const startPoint2 = headerSvg.append("g");
-            // This is the "High Carbon, Low Carbon box"
-            const legend2_tabs = [0, 180];
-            const legend2_width = [179, 400];
-            const legend2 = startPoint2.selectAll(".legend2")
-                .data(l2color.domain())
-                .enter().append("g")
-                .attr("class", "legend2")
-                .attr("transform", function (d, i) {
-                    return "translate(" + legend2_tabs[i] + ",-40)";
-                })
+            startPoint2.selectAll(".legend2")
                 .on("click", function () {
                     lastSortKey = this.textContent;
                     d3.selectAll(".legend, .legend2")
@@ -131,54 +210,9 @@ function energy() {
                     Draw(data);
                 });
 
-            legend2.append("rect")
-                .attr("x", 0)
-                .attr("width", function (d, i) {
-                    return legend2_width[i];
-                })
-                .attr("height", 42)
-                .style("fill", l2color)
-                .style('opacity', 0.3)
-                .on('mouseover', function () {
-                    d3.select(this)
-                        .style('opacity', 0.5)
-                })
-                .on('mouseout', function () {
-                    d3.select(this)
-                        .style('opacity', 0.3)
-                }).attr("rx", 3)
-                .attr("ry", 3);
 
-            legend2.append("text")
-                .attr("x", 4)
-                .attr("y", 11)
-                .attr("dy", ".35em")
-                .style("text-anchor", "begin")
-                .style("font", "14px sans-serif")
-                .style("text-transform", "capitalize")
-                .text(function (d) {
-                    return d;
-                });
 
-            // The energy source legend with the small boxes
-            const startPoint = startPoint2.append("g");
-            const legend_tabs = [4, 60, 120, 184, 250, 310, 380, 440];
-            const legend = startPoint.selectAll(".legend")
-                .data(color.domain().slice())
-                .enter().append("g")
-                .attr("class", "legend")
-                .attr("transform", function (d, i) {
-                    return "translate(" + legend_tabs[i] + ",-20)";
-                })
-                .style('opacity', 0.8)
-                .on('mouseover', function () {
-                    d3.select(this)
-                        .style('opacity', 1)
-                })
-                .on('mouseout', function () {
-                    d3.select(this)
-                        .style('opacity', 0.8)
-                })
+            startPoint.selectAll(".legend")
                 .on("click", function () {
                     lastSortKey = this.textContent;
                     d3.selectAll(".legend, .legend2")
@@ -186,25 +220,6 @@ function energy() {
                     d3.select(this)
                         .attr("text-decoration", "underline");
                     Draw(data);
-                });
-
-            legend.append("rect")
-                .attr("x", 0)
-                .attr("width", 18)
-                .attr("height", 18)
-                .style("fill", color)
-                .attr("rx", 3)
-                .attr("ry", 3);
-
-            legend.append("text")
-                .attr("x", 22)
-                .attr("y", 9)
-                .attr("dy", ".35em")
-                .style("text-anchor", "begin")
-                .style("font", "12px sans-serif")
-                .style("text-transform", "capitalize")
-                .text(function (d) {
-                    return d;
                 });
 
             Draw(data);
