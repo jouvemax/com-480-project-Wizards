@@ -52,7 +52,10 @@ function industry() {
         .attr("text-anchor", "end")
         .attr("x", width)
         .attr("y", height + 35 )
+        .attr("font-family", "Helvetica")
+        .attr("font-weight", "bold")
         .text("Year");
+    
 
     // Add Y axis
     /*var y = d3.scaleLinear()
@@ -95,6 +98,8 @@ function industry() {
         .attr("y", -margin.left+15)
         .attr("x", -margin.top+100)
         .text("Total emissions (in million of tons of CO2)")
+        .attr("font-family", "Helvetica")
+        .attr("font-weight", "bold")
 
     // color palette
     var color = d3.scaleOrdinal()

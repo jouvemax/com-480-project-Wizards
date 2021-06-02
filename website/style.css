@@ -473,16 +473,16 @@ text{
   text-decoration: none;
   outline: none;
   color: #fff;
-  background-color: #4ABCC4;
+  background-color: #023e8a;
   border: none;
   border-radius: 15px;
   box-shadow: 0 9px #999;
 }
 
-.button:hover {background-color: #44AEB5}
+.button:hover {background-color: #023e8a}
 
 .button:active {
-  background-color: #4ABCC4;
+  background-color: #023e8a;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
