@@ -120,7 +120,6 @@ function displayMap() {
         if (d == "Transportation") return 280
         if (d == "Other") return 360
         return 50 + i*(size+60)})
-      console.log(xPos)
       legendsBarChart.selectAll("mydots")
       .data(keys)
       .enter()
@@ -465,29 +464,6 @@ function displayMap() {
                   .style("top", (d3.event.pageY) + "px")
                   .style("left", (d3.event.pageX)+"px")
                 });
-
-                // rects.exit().remove();
-
-
-                // var title = svg_barChart.append("text")
-                // .attr("x", (width / 3.5))
-                // .attr("y", 0 - (margin.top / 2) - 10)
-                // .attr("text-anchor", "middle")
-                // .style("font-size", "8px")
-                // .text(`${countryName}` + " " + `${year}`);
-
-                // title.exit().remove()
-
-
-
-                // var description = svg_barChart.append("text")
-                // .attr("x", (width / 3.5))
-                // .attr("y", 0 - (margin.top / 2))
-                // .attr("text-anchor", "middle")
-                // .style("font-size", "8px")
-                // .text("Total emissions: " + `${countryData.total}` + " MtCo2e").exit().remove();
-
-                // description.exit().remove()
               }
                   }
 
