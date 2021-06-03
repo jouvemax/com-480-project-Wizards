@@ -315,6 +315,20 @@ section {
   right:45%;
 }
 
+/* References */
+
+.references {
+    font-size: 20px;
+    display: table-row;
+    text-align: left;
+    font-family: "Helvetica";
+    height: 80%;
+}
+
+.references > span {
+  display: block;
+}
+
 
 /* Fullpage js styling */
 
