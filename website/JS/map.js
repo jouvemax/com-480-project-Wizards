@@ -107,18 +107,18 @@ function displayMap() {
       var legendsBarChart = d3.select("#sectorLegend").append("svg").attr("height", 300).attr("width", 450)
 
       // create a list of keys
-      var keys = ["Agriculture", "Industry", "Energy", "Transportation", "Other"]
+      var keys = ["Energy", "Industry", "Transportation", "Other", "Agriculture"]
 
-      var colors = ['#4daf4a','#495057','#fca311', '#023e8a', '#abc4ff']
+      var colors = ['#fca311', '#495057', '#023e8a', '#abc4ff', '#4daf4a']
 
       // Add one dot in the legend for each name.
       var size = 20
       const xPos = keys.map(function (d, i) {
-        if (d == "Agriculture") return 50
-        if (d == "Industry") return 120
-        if (d == "Energy") return 190
-        if (d == "Transportation") return 280
-        if (d == "Other") return 360
+        if (d == "Energy") return 45
+        if (d == "Industry") return 110
+        if (d == "Transportation") return 200
+        if (d == "Other") return 285
+        if (d == "Agriculture") return 355
         return 50 + i*(size+60)})
       legendsBarChart.selectAll("mydots")
       .data(keys)
@@ -136,10 +136,11 @@ function displayMap() {
       .enter()
       .append("text")
       .attr("x", function(d,i) {
-        if (d == "Agriculture") return xPos[i] - 30
-        if (d == "Industry" || d == "Energy") return xPos[i] - 15
+        if (d == "Agriculture") return xPos[i] - 28
+        if (d == "Industry") return xPos[i] - 18
+        if (d == "Energy") return xPos[i] - 15
         if (d == "Transportation") return xPos[i] - 40
-        if (d == "Other") return xPos[i] - 10
+        if (d == "Other") return xPos[i] - 11
         })
       .attr("y", 10 + size * 2) // 100 is where the first dot appears. 25 is the distance between dots
       .style("fill", "black")
@@ -340,17 +341,17 @@ function displayMap() {
 
 
       stackedData = [agriculture_per,
-        industry_per,
-        energy_per,
+        other_per,
         transport_per,
-        other_per].reverse()
+        industry_per,
+        energy_per].reverse()
 
         totalEmissionPerSector = [
           countryData.agriculture,
-          countryData.industry,
-          countryData.energy,
+          countryData.other,
           countryData.transport,
-          countryData.other
+          countryData.industry,
+          countryData.energy
         ].reverse()
 
         prev_height = [0,
@@ -397,17 +398,17 @@ function displayMap() {
 
       totalEmissionPerSector = [
         countryData.agriculture,
-        countryData.industry,
-        countryData.energy,
+        countryData.other,
         countryData.transport,
-        countryData.other
+        countryData.industry,
+        countryData.energy
       ].reverse()
 
       stackedData = [agriculture_per,
-        industry_per,
-        energy_per,
+        other_per,
         transport_per,
-        other_per].reverse()
+        industry_per,
+        energy_per].reverse()
 
         prev_height = [0,
           stackedData[0],
@@ -418,7 +419,7 @@ function displayMap() {
         ];
 
 
-        var colors = ['#4daf4a', '#495057', '#fca311', '#023e8a', '#abc4ff'].reverse()
+        var colors = ['#4daf4a', '#abc4ff', '#023e8a', '#495057', '#fca311'].reverse()
 
         y_barChart = d3.scaleLinear()
         .domain([0, 100])
