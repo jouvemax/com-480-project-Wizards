@@ -7,16 +7,11 @@ function displayMap() {
   d3.json("JS/world_countries.json", function(error1, map_data) {
     d3.json("JS/emissions_full_dataset.json", function(error2, emissions_data) {
 
-      console.log(emissions_data)
-      console.log(map_data)
-
       nameById = {}
 
       map_data.features.map(x => {
         nameById[x.id] = x.properties.name
       })
-
-      console.log(nameById)
 
       const format = d3.format(',');
 
