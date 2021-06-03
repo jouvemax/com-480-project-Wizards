@@ -347,7 +347,6 @@ function energy() {
         }));
         svg = svg.append("g");
         d3.selectAll(".bar").remove();
-        d3.selectAll(".tick").remove();
         d3.selectAll(".y, .axis").remove();
 
         headerSvg.append("g")
